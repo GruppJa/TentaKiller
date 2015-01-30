@@ -1,0 +1,15 @@
+﻿<Window x:Class="TentaKiller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TentaKiller" Height="350" Width="525">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Margin="5" Name="ViewExamsButton" Click="ViewExams">Exams</Button>
+            <Button Margin="5" Name="VreateExamButton" Click="CreateExam">New Exam</Button>
+            <Button Margin="5" Name="ViewStudentsButton" Click="ViewStudents">Students</Button>
+            <Button Margin="5" Name="VreateStudentButton" Click="CreateStudent">New Student</Button>
+        </StackPanel>
+        
+        <Frame Name="frame" NavigationUIVisibility="Hidden"></Frame>
+    </StackPanel>
+</Window>
