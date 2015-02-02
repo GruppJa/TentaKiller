@@ -8,7 +8,8 @@
 	Title="Exam Page">
 
     <StackPanel>
-        <TextBlock FontSize="14">Exam</TextBlock>
+        <TextBlock HorizontalAlignment="Center" FontSize="14">Exam</TextBlock>
+        <TextBlock Text="{Binding Id}"></TextBlock>
         <TextBlock Text="{Binding Name}"></TextBlock>
     </StackPanel>
 </Page>

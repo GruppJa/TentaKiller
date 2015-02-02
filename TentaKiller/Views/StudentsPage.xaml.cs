@@ -20,8 +20,11 @@ namespace TentaKiller
     /// </summary>
     public partial class StudentsPage : Page
     {
-        public StudentsPage()
+        protected MainWindow mainWindow;
+
+        public StudentsPage(MainWindow window)
         {
+            mainWindow = window;
             InitializeComponent();
         }
     }

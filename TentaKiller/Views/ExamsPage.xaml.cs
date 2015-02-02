@@ -21,9 +21,31 @@ namespace TentaKiller
     /// </summary>
     public partial class ExamsPage : Page
     {
-        public ExamsPage()
+        protected MainWindow mainWindow;
+        public ExamsPage(MainWindow window)
         {
+            mainWindow = window;
             InitializeComponent();
+        }
+
+        protected void SelectExam(object sender, SelectionChangedEventArgs ea)
+        {
+            if (ListView.SelectedItem == null)
+                return;
+
+            Console.WriteLine("\n ## herrow");
+            Console.WriteLine("..sender :");
+            Console.WriteLine(sender);
+            Console.WriteLine("..arguments :");
+            Console.WriteLine(ea);
+            Console.WriteLine("..item :");
+            Console.WriteLine(ListView.SelectedItem);
+            Console.WriteLine("..items :");
+            Console.WriteLine(ListView.SelectedItems);
+
+            mainWindow.ExamPage.DataContext = ListView.SelectedItem;
+            ListView.UnselectAll();
+            mainWindow.Navigate(mainWindow.ExamPage);
         }
     }
 }

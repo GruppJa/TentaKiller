@@ -39,17 +39,17 @@ namespace TentaKiller
         {
             this.app = app;
 
-            ExamPage = new ExamPage();
-            ExamsPage = new ExamsPage();
+            ExamPage = new ExamPage(this);
+            ExamsPage = new ExamsPage(this);
             ExamsPage.DataContext = app.Data.Exams.Local;
-            StudentPage = new StudentPage();
-            StudentsPage = new StudentsPage();
+            StudentPage = new StudentPage(this);
+            StudentsPage = new StudentsPage(this);
             StudentsPage.DataContext = app.Data.Students.Local;
 
             InitializeComponent();
         }
 
-        protected void CreateExam(object sender, EventArgs e)
+        public void CreateExam(object sender, EventArgs e)
         {
             Exam exam = new Exam();
             app.Data.Exams.Add(exam);
@@ -58,7 +58,7 @@ namespace TentaKiller
             Navigate(ExamPage);
         }
 
-        protected void CreateStudent(object sender, EventArgs e)
+        public void CreateStudent(object sender, EventArgs e)
         {
             Student student = new Student();
             app.Data.Students.Add(student);
@@ -67,14 +67,14 @@ namespace TentaKiller
             Navigate(StudentPage);
         }
 
-        protected void Navigate(Page page)
+        public void Navigate(Page page)
         {
             if (VoiceEnabled) speaker.Speak("Navigating to " + page.Title);
 
             frame.NavigationService.Navigate(page);
         }
 
-        protected void Save()
+        public void Save()
         {
             Console.WriteLine("Saving..!");
             try
@@ -89,17 +89,17 @@ namespace TentaKiller
             }
         }
 
-        protected void ToggleVoiceEnabled(object sender, EventArgs ea)
+        public void ToggleVoiceEnabled(object sender, EventArgs ea)
         {
             if (VoiceEnabled = !VoiceEnabled) speaker.Speak("Voice enabled");
         }
 
-        protected void ViewExams(object sender, EventArgs e)
+        public void ViewExams(object sender, EventArgs e)
         {
             Navigate(ExamsPage);
         }
 
-        protected void ViewStudents(object sender, EventArgs e)
+        public void ViewStudents(object sender, EventArgs e)
         {
             Navigate(StudentsPage);
         }
