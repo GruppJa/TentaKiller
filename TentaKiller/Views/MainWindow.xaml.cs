@@ -55,7 +55,7 @@ namespace TentaKiller
             app.Data.Exams.Add(exam);
             Save();
             ExamPage.DataContext = exam;
-            frame.NavigationService.Navigate(ExamPage);
+            Navigate(ExamPage);
         }
 
         protected void CreateStudent(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace TentaKiller
             app.Data.Students.Add(student);
             Save();
             StudentPage.DataContext = student;
-            frame.NavigationService.Navigate(StudentPage);
+            Navigate(StudentPage);
         }
 
         protected void Navigate(Page page)

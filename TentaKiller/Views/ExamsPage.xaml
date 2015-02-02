@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="ExamsPage" ShowsNavigationUI="False">
-    <StackPanel>
-        <TextBlock FontSize="14">Exams</TextBlock>
+	Title="A list of Exams" ShowsNavigationUI="False">
+    <DockPanel>
+        <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="14">Exams</TextBlock>
 
-        <ListView ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" Margin="0,21,0,0">
+        <ListView ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -19,5 +19,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackPanel>
+    </DockPanel>
 </Page>
