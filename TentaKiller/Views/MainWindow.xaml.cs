@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,6 +30,10 @@ namespace TentaKiller
         public ExamsPage ExamsPage { get; set; }
         public StudentPage StudentPage { get; set; }
         public StudentsPage StudentsPage { get; set; }
+
+        // Speech / Voice
+        protected SpeechSynthesizer speaker = new SpeechSynthesizer();
+        protected bool VoiceEnabled { get; set; }
 
         public MainWindow(App app)
         {
@@ -62,7 +67,14 @@ namespace TentaKiller
             frame.NavigationService.Navigate(StudentPage);
         }
 
-        private void Save()
+        protected void Navigate(Page page)
+        {
+            if (VoiceEnabled) speaker.Speak("Navigating to " + page.Title);
+
+            frame.NavigationService.Navigate(page);
+        }
+
+        protected void Save()
         {
             Console.WriteLine("Saving..!");
             try
@@ -77,14 +89,19 @@ namespace TentaKiller
             }
         }
 
-        private void ViewExams(object sender, EventArgs e)
+        protected void ToggleVoiceEnabled(object sender, EventArgs ea)
         {
-            frame.NavigationService.Navigate(ExamsPage);
+            if (VoiceEnabled = !VoiceEnabled) speaker.Speak("Voice enabled");
         }
 
-        private void ViewStudents(object sender, EventArgs e)
+        protected void ViewExams(object sender, EventArgs e)
         {
-            frame.NavigationService.Navigate(StudentsPage);
+            Navigate(ExamsPage);
+        }
+
+        protected void ViewStudents(object sender, EventArgs e)
+        {
+            Navigate(StudentsPage);
         }
     }
 }
