@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TentaKiller
+namespace TentaKiller.Models
 {
     public class Student
     {
