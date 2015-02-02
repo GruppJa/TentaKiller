@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TentaKiller.Models;
 
-namespace TentaKiller
+namespace TentaKiller.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,4 +1,4 @@
-﻿<Window x:Class="TentaKiller.MainWindow"
+﻿<Window x:Class="TentaKiller.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="TentaKiller" Height="350" Width="525">

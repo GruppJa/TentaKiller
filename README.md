@@ -10,9 +10,9 @@ Student View Page
 Exam Edit Page
 Exam View Page
 Feedback displayer (informational and errors)
-move Views to own namespace
 
 # DONE
+move Views to own namespace
 move Models to own namespace
 Go to selected Exam in Exams Page
 Give each Page (Views) a reference to MainWindow
