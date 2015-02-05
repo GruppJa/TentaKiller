@@ -10,8 +10,10 @@ Student View Page
 Exam Edit Page
 Exam View Page
 Feedback displayer (informational and errors)
+Sync. (Bind) VoiceEnabled CheckBox with MainWindow.VoiceEnabled instead of ToggleButton.VoiceEnabled (BUG it is enabled, but reverse for some reason)
 
 # DONE
+BUG Navigation occurs initally to exam page due to initial selection in exams page triggers SelectionChanged (SelectExam(..))
 move Views to own namespace
 move Models to own namespace
 Go to selected Exam in Exams Page

@@ -26,6 +26,19 @@ namespace TentaKiller.Views
         {
             mainWindow = window;
             InitializeComponent();
+            ListView.SelectionChanged += SelectionChanged;
+        }
+
+        void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ListView.SelectedItem == null)
+                return;
+
+            Console.WriteLine("\n\n#CHAAANGGGEEE!");
+
+            mainWindow.ExamPage.DataContext = ListView.SelectedItem;
+            ListView.UnselectAll();
+            mainWindow.Navigate(mainWindow.ExamPage);
         }
 
         protected void SelectExam(object sender, SelectionChangedEventArgs ea)

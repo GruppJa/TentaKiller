@@ -34,10 +34,11 @@ namespace TentaKiller.Views
 
         // Speech / Voice
         protected SpeechSynthesizer speaker = new SpeechSynthesizer();
-        protected bool VoiceEnabled { get; set; }
+        public bool VoiceEnabled { get; set; }
 
         public MainWindow(App app)
         {
+            VoiceEnabled = false;
             this.app = app;
 
             ExamPage = new ExamPage(this);
