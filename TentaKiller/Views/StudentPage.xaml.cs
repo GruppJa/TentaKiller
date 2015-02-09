@@ -22,6 +22,9 @@ namespace TentaKiller.Views
     {
         protected MainWindow mainWindow;
 
+        protected TentaKiller.Models.Student student;
+        public TentaKiller.Models.Student Student { get { return student; } set { student = value; DataContext = value; } }
+
         public StudentPage(MainWindow window)
         {
             mainWindow = window;

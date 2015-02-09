@@ -48,7 +48,7 @@ namespace TentaKiller.Views
 
             this.app = app;
 
-            AddFeedback("Hej");
+            AddFeedback("Welcome to Tenta Killer (click me to remove me)");
             ExamPage = new ExamPage(this);
             ExamsPage = new ExamsPage(this);
             StudentPage = new StudentPage(this);
@@ -58,10 +58,10 @@ namespace TentaKiller.Views
 
             feedbackList.SetBinding(ItemsControl.ItemsSourceProperty, new Binding() { Source = feedback });
             feedbackList.SelectionChanged += FeedbackSelectionChanged;
-            AddFeedback("Hopp");
         }
 
         public void AddFeedback(string message) {
+            // Add at the beginning so it displays first in when displaying.
             feedback.Insert(0, message);
         }
 
@@ -69,8 +69,8 @@ namespace TentaKiller.Views
         {
             Exam exam = new Exam();
             app.Data.Exams.Add(exam);
-            Save();
-            ExamPage.DataContext = exam;
+            app.Data.SaveChanges();
+            ExamPage.Exam = exam;
             Navigate(ExamPage);
             AddFeedback("Exam created (" + exam.Id + ")");
         }
@@ -79,8 +79,8 @@ namespace TentaKiller.Views
         {
             Student student = new Student();
             app.Data.Students.Add(student);
-            Save();
-            StudentPage.DataContext = student;
+            app.Data.SaveChanges();
+            StudentPage.Student = student;
             Navigate(StudentPage);
             AddFeedback("Student created (" + student.Id + ")");
         }
@@ -90,11 +90,7 @@ namespace TentaKiller.Views
             if (feedbackList.SelectedItem == null)
                 return;
 
-            Console.WriteLine("\n\n# SelectionChanged()");
             feedback.Remove((String)feedbackList.SelectedItem);
-            //feedback.Items.Remove();
-            //feedback.SelectedItems.RemoveAt(0);
-            //mainWindow.ExamPage.DataContext = listView.SelectedItem;
         }
 
         public void Navigate(Page page)
@@ -103,24 +99,6 @@ namespace TentaKiller.Views
 
             frame.NavigationService.Navigate(page);
             AddFeedback("Navigated to " + page.Title);
-        }
-
-        public void Save()
-        {
-            Console.WriteLine("Saving..!");
-            AddFeedback("Saving!");
-            try
-            {
-                app.Data.SaveChanges();
-                AddFeedback("Saved!");
-                Console.WriteLine("Saved!");
-            }
-            catch (DbUpdateException err)
-            {
-                Console.WriteLine("Save ERROR : ", err.Message);
-                Console.WriteLine(".. : ", err.StackTrace);
-                AddFeedback("Save error! " + err.Message);
-            }
         }
 
         public void ToggleVoiceEnabled(object sender, EventArgs ea)

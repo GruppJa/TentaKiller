@@ -22,6 +22,8 @@ namespace TentaKiller.Views
     public partial class ExamPage : Page
     {
         protected MainWindow mainWindow;
+        protected TentaKiller.Models.Exam exam;
+        public TentaKiller.Models.Exam Exam { get { return exam; } set { exam = value; DataContext = value; } }
 
         public ExamPage(MainWindow window)
         {
@@ -31,7 +33,7 @@ namespace TentaKiller.Views
 
         public void RemoveExam(object sender, EventArgs ea)
         {
-            mainWindow.app.Data.Exams.Local.Remove((Exam)DataContext);
+            mainWindow.app.Data.Exams.Local.Remove(exam);
             mainWindow.app.Data.SaveChanges();
             mainWindow.Navigate(mainWindow.ExamsPage);
         }

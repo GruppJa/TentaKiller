@@ -2,6 +2,7 @@
 A Quiz-like game to help studying for exams.
 
 # TODO
+Examination/Test-taking session
 Database in own thread
 Voice in own thread
 Go to selected Student in Students Page

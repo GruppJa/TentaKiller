@@ -39,17 +39,7 @@ namespace TentaKiller.Views
             if (listView.SelectedItem == null)
                 return;
 
-            mainWindow.ExamPage.DataContext = listView.SelectedItem;
-            listView.UnselectAll();
-            mainWindow.Navigate(mainWindow.ExamPage);
-        }
-
-        protected void SelectExam(object sender, SelectionChangedEventArgs ea)
-        {
-            if (listView.SelectedItem == null)
-                return;
-
-            mainWindow.ExamPage.DataContext = listView.SelectedItem;
+            mainWindow.ExamPage.Exam = (Exam)listView.SelectedItem;
             listView.UnselectAll();
             mainWindow.Navigate(mainWindow.ExamPage);
         }
