@@ -98,7 +98,6 @@ namespace TentaKiller.Views
             if (VoiceEnabled) speaker.Speak("Navigating to " + page.Title);
 
             frame.NavigationService.Navigate(page);
-            AddFeedback("Navigated to " + page.Title);
         }
 
         public void ToggleVoiceEnabled(object sender, EventArgs ea)
