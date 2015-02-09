@@ -35,6 +35,7 @@ namespace TentaKiller.Views
         {
             mainWindow.app.Data.Exams.Local.Remove(exam);
             mainWindow.app.Data.SaveChanges();
+            mainWindow.AddFeedback("Removed exam '" + exam.Name + "' [" + exam.Id + "]");
             mainWindow.Navigate(mainWindow.ExamsPage);
         }
     }
