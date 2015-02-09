@@ -12,11 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TentaKiller.Models;
 
 namespace TentaKiller.Views
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for ExamPage.xaml
     /// </summary>
     public partial class ExamPage : Page
     {
@@ -26,6 +27,13 @@ namespace TentaKiller.Views
         {
             mainWindow = window;
             InitializeComponent();
+        }
+
+        public void RemoveExam(object sender, EventArgs ea)
+        {
+            mainWindow.app.Data.Exams.Local.Remove((Exam)DataContext);
+            mainWindow.app.Data.SaveChanges();
+            mainWindow.Navigate(mainWindow.ExamsPage);
         }
     }
 }

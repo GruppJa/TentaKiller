@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace TentaKiller.Views
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for StudentPage.xaml
     /// </summary>
     public partial class StudentPage : Page
     {

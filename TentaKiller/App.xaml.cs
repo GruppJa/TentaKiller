@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.Entity.Infrastructure;
@@ -14,19 +13,27 @@ using TentaKiller.Views;
 namespace TentaKiller
 {
     /// <summary>
+    /// Main / entry point
+    /// Application context
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        // Data
         public TentaKillerDBContext Data { get; set; }
 
+        // GUI
         public MainWindow Window { get; set; }
 
         public void Main(object sender, StartupEventArgs e)
         {
             Data = new TentaKillerDBContext();
+            
+            Window = new MainWindow(this);
+            Window.Show();
+
+            // Populate local data
             // TODO Find and use that Load() method the documentation talks about...
-            // Seems like using ToList(..) causes Navigate(..) to be called. (but why!?)
             // DbSet<Entity> https://msdn.microsoft.com/en-us/library/gg696460(v=vs.113).aspx
             // ObjectSet<Entity> https://msdn.microsoft.com/en-us/library/dn159797(v=vs.113).aspx
             // Data.Exams.Load();
@@ -34,10 +41,6 @@ namespace TentaKiller
             CollectionViewSource.GetDefaultView(Data.Students.Local).MoveCurrentTo(null);
             Data.Exams.ToList<Exam>();
             CollectionViewSource.GetDefaultView(Data.Exams.Local).MoveCurrentTo(null);
-            
-            Window = new MainWindow(this);
-            Window.Show();
-            Window.DataContext = Window;
         }
     }
 }

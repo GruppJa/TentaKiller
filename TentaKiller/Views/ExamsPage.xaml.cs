@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -13,51 +14,43 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TentaKiller.Models;
 
 namespace TentaKiller.Views
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for ExamsPage.xaml
     /// </summary>
     public partial class ExamsPage : Page
     {
         protected MainWindow mainWindow;
+
         public ExamsPage(MainWindow window)
         {
             mainWindow = window;
             InitializeComponent();
-            ListView.SelectionChanged += SelectionChanged;
+            listView.SelectionChanged += SelectionChanged;
+            listView.IsSynchronizedWithCurrentItem = true;
+            listView.ItemsSource = window.app.Data.Exams.Local;
         }
 
         void SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ListView.SelectedItem == null)
+            if (listView.SelectedItem == null)
                 return;
 
-            Console.WriteLine("\n\n#CHAAANGGGEEE!");
-
-            mainWindow.ExamPage.DataContext = ListView.SelectedItem;
-            ListView.UnselectAll();
+            mainWindow.ExamPage.DataContext = listView.SelectedItem;
+            listView.UnselectAll();
             mainWindow.Navigate(mainWindow.ExamPage);
         }
 
         protected void SelectExam(object sender, SelectionChangedEventArgs ea)
         {
-            if (ListView.SelectedItem == null)
+            if (listView.SelectedItem == null)
                 return;
 
-            Console.WriteLine("\n ## herrow");
-            Console.WriteLine("..sender :");
-            Console.WriteLine(sender);
-            Console.WriteLine("..arguments :");
-            Console.WriteLine(ea);
-            Console.WriteLine("..item :");
-            Console.WriteLine(ListView.SelectedItem);
-            Console.WriteLine("..items :");
-            Console.WriteLine(ListView.SelectedItems);
-
-            mainWindow.ExamPage.DataContext = ListView.SelectedItem;
-            ListView.UnselectAll();
+            mainWindow.ExamPage.DataContext = listView.SelectedItem;
+            listView.UnselectAll();
             mainWindow.Navigate(mainWindow.ExamPage);
         }
     }

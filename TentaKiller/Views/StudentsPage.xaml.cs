@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace TentaKiller.Views
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for StudentsPage.xaml
     /// </summary>
     public partial class StudentsPage : Page
     {
@@ -26,6 +26,9 @@ namespace TentaKiller.Views
         {
             mainWindow = window;
             InitializeComponent();
+            // TODO listView.SelectionChanged += SelectionChanged;
+            listView.IsSynchronizedWithCurrentItem = true;
+            listView.ItemsSource = window.app.Data.Students.Local;
         }
     }
 }

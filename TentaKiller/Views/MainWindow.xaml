@@ -3,14 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="TentaKiller" Height="350" Width="525">
     <DockPanel>
+        <ListView Name="feedbackList" DockPanel.Dock="Top" MaxHeight="47">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock HorizontalAlignment="Left" Text="{Binding}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Margin="5" Name="ViewExamsButton" Click="ViewExams">Exams</Button>
-            <Button Margin="5" Name="VreateExamButton" Click="CreateExam">New Exam</Button>
+            <Button Margin="5" Name="CreateExamButton" Click="CreateExam">New Exam</Button>
             <Button Margin="5" Name="ViewStudentsButton" Click="ViewStudents">Students</Button>
             <Button Margin="5" Name="VreateStudentButton" Click="CreateStudent">New Student</Button>
-            <CheckBox IsChecked="{Binding Path=MainWindow.VoiceEnabled, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ToggleVoiceEnabled" Background="White"/>
+            <CheckBox IsChecked="{Binding Path=MainWindow.VoiceEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ToggleVoiceEnabled" Background="White"/>
         </StackPanel>
-        
+
         <Frame Name="frame" NavigationUIVisibility="Hidden"></Frame>
     </DockPanel>
 </Window>

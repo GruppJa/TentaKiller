@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Speech.Synthesis;
@@ -23,7 +24,12 @@ namespace TentaKiller.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        protected App app;
+        public App app { get; set; }
+
+        // Feedback (for user)
+        protected ObservableCollection<String> feedback = new ObservableCollection<string>();
+        public ObservableCollection<String> Feedback { get { return feedback; } }
+
 
         // Pages / Views
         public Page CurrentPage { get; set; }
@@ -39,16 +45,24 @@ namespace TentaKiller.Views
         public MainWindow(App app)
         {
             VoiceEnabled = false;
+
             this.app = app;
 
+            AddFeedback("Hej");
             ExamPage = new ExamPage(this);
             ExamsPage = new ExamsPage(this);
-            ExamsPage.DataContext = app.Data.Exams.Local;
             StudentPage = new StudentPage(this);
             StudentsPage = new StudentsPage(this);
-            StudentsPage.DataContext = app.Data.Students.Local;
 
             InitializeComponent();
+
+            feedbackList.SetBinding(ItemsControl.ItemsSourceProperty, new Binding() { Source = feedback });
+            feedbackList.SelectionChanged += FeedbackSelectionChanged;
+            AddFeedback("Hopp");
+        }
+
+        public void AddFeedback(string message) {
+            feedback.Insert(0, message);
         }
 
         public void CreateExam(object sender, EventArgs e)
@@ -58,6 +72,7 @@ namespace TentaKiller.Views
             Save();
             ExamPage.DataContext = exam;
             Navigate(ExamPage);
+            AddFeedback("Exam created (" + exam.Id + ")");
         }
 
         public void CreateStudent(object sender, EventArgs e)
@@ -67,6 +82,19 @@ namespace TentaKiller.Views
             Save();
             StudentPage.DataContext = student;
             Navigate(StudentPage);
+            AddFeedback("Student created (" + student.Id + ")");
+        }
+
+        void FeedbackSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (feedbackList.SelectedItem == null)
+                return;
+
+            Console.WriteLine("\n\n# SelectionChanged()");
+            feedback.Remove((String)feedbackList.SelectedItem);
+            //feedback.Items.Remove();
+            //feedback.SelectedItems.RemoveAt(0);
+            //mainWindow.ExamPage.DataContext = listView.SelectedItem;
         }
 
         public void Navigate(Page page)
@@ -74,20 +102,24 @@ namespace TentaKiller.Views
             if (VoiceEnabled) speaker.Speak("Navigating to " + page.Title);
 
             frame.NavigationService.Navigate(page);
+            AddFeedback("Navigated to " + page.Title);
         }
 
         public void Save()
         {
             Console.WriteLine("Saving..!");
+            AddFeedback("Saving!");
             try
             {
                 app.Data.SaveChanges();
+                AddFeedback("Saved!");
                 Console.WriteLine("Saved!");
             }
             catch (DbUpdateException err)
             {
                 Console.WriteLine("Save ERROR : ", err.Message);
                 Console.WriteLine(".. : ", err.StackTrace);
+                AddFeedback("Save error! " + err.Message);
             }
         }
 

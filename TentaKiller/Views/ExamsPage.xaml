@@ -9,7 +9,7 @@
     <DockPanel>
         <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="14">Exams</TextBlock>
 
-        <ListView Name="ListView" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True">
+        <ListView Name="listView">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
