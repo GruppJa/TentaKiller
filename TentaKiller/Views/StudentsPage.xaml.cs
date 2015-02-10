@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TentaKiller.Models;
 
 namespace TentaKiller.Views
 {
@@ -29,6 +30,16 @@ namespace TentaKiller.Views
             // TODO listView.SelectionChanged += SelectionChanged;
             listView.IsSynchronizedWithCurrentItem = true;
             listView.ItemsSource = window.app.Data.Students.Local;
+        }
+
+        public void CreateStudent(object sender, EventArgs e)
+        {
+            Student student = new Student();
+            mainWindow.app.Data.Students.Add(student);
+            mainWindow.app.Data.SaveChanges();
+            mainWindow.StudentPage.Student = student;
+            mainWindow.Navigate(mainWindow.StudentPage);
+            mainWindow.AddFeedback("Student created (" + student.Id + ")");
         }
     }
 }

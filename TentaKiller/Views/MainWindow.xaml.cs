@@ -51,8 +51,9 @@ namespace TentaKiller.Views
 
             AddFeedback("Welcome to Tenta Killer (click me to remove me)");
             ChallangePage = new ChallangePage(this);
-            ExamPage = new ExamPage(this);
+            
             ExamsPage = new ExamsPage(this);
+            ExamPage = new ExamPage(this);
             StudentPage = new StudentPage(this);
             StudentsPage = new StudentsPage(this);
 
@@ -66,28 +67,8 @@ namespace TentaKiller.Views
             // Add at the beginning so it displays first in when displaying.
             feedback.Insert(0, message);
         }
-
-        public void CreateExam(object sender, EventArgs e)
-        {
-            Exam exam = new Exam();
-            app.Data.Exams.Add(exam);
-            app.Data.SaveChanges();
-            ExamPage.Exam = exam;
-            Navigate(ExamPage);
-            AddFeedback("Exam created (" + exam.Id + ")");
-        }
-
-        public void CreateStudent(object sender, EventArgs e)
-        {
-            Student student = new Student();
-            app.Data.Students.Add(student);
-            app.Data.SaveChanges();
-            StudentPage.Student = student;
-            Navigate(StudentPage);
-            AddFeedback("Student created (" + student.Id + ")");
-        }
-
-        void FeedbackSelectionChanged(object sender, SelectionChangedEventArgs e)
+        
+        protected void FeedbackSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (feedbackList.SelectedItem == null)
                 return;

@@ -15,9 +15,7 @@
 
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Margin="5" Name="ViewExamsButton" Click="ViewExams">Exams</Button>
-            <Button Margin="5" Name="CreateExamButton" Click="CreateExam">New Exam</Button>
             <Button Margin="5" Name="ViewStudentsButton" Click="ViewStudents">Students</Button>
-            <Button Margin="5" Name="VreateStudentButton" Click="CreateStudent">New Student</Button>
             <CheckBox IsChecked="{Binding Path=MainWindow.VoiceEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ToggleVoiceEnabled" Background="White"/>
         </StackPanel>
 

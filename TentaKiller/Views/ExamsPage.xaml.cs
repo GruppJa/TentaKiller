@@ -25,6 +25,8 @@ namespace TentaKiller.Views
     {
         protected MainWindow mainWindow;
 
+        
+
         public ExamsPage(MainWindow window)
         {
             mainWindow = window;
@@ -42,6 +44,15 @@ namespace TentaKiller.Views
             mainWindow.ExamPage.Exam = (Exam)listView.SelectedItem;
             listView.UnselectAll();
             mainWindow.Navigate(mainWindow.ExamPage);
+        }
+        public void CreateExam(object sender, EventArgs e)
+        {
+            Exam exam = new Exam();
+            mainWindow.app.Data.Exams.Add(exam);
+            mainWindow.app.Data.SaveChanges();
+            mainWindow.ExamPage.Exam = exam;
+            mainWindow.Navigate(mainWindow.ExamPage);
+            mainWindow.AddFeedback("Exam created (" + exam.Id + ")");
         }
     }
 }
