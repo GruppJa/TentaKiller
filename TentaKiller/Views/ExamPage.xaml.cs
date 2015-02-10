@@ -23,12 +23,31 @@ namespace TentaKiller.Views
     {
         protected MainWindow mainWindow;
         protected TentaKiller.Models.Exam exam;
-        public TentaKiller.Models.Exam Exam { get { return exam; } set { exam = value; DataContext = value; } }
+        public TentaKiller.Models.Exam Exam {
+            get { return exam; }
+            set {
+                exam = value;
+                DataContext = value;
+                //  ItemsSource="{Binding Challanges, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True"
+                challangeList.IsSynchronizedWithCurrentItem = false;
+                challangeList.ItemsSource = value.Challanges;
+            } }
 
         public ExamPage(MainWindow window)
         {
             mainWindow = window;
             InitializeComponent();
+        }
+
+        public void AddNewChallange(object sender, EventArgs ea)
+        {
+            Challange challange = new Challange();
+            exam.Challanges.Add(challange);
+            challange.Exams.Add(exam);
+            mainWindow.app.Data.Challanges.Add(challange);
+            mainWindow.app.Data.SaveChanges();
+            mainWindow.ChallangePage.Challange = challange;
+            mainWindow.Navigate(mainWindow.ChallangePage);
         }
 
         public void RemoveExam(object sender, EventArgs ea)

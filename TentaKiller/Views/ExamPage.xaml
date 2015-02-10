@@ -8,10 +8,27 @@
 	Title="Exam Page">
 
     <StackPanel>
-        <TextBlock HorizontalAlignment="Center" FontSize="14">Exam</TextBlock>
+        <TextBlock HorizontalAlignment="Center" FontSize="16">Exam</TextBlock>
+
         <TextBlock Text="{Binding Id}"></TextBlock>
         <TextBlock Text="{Binding Name}"></TextBlock>
+
+        <TextBlock HorizontalAlignment="Center" FontSize="12">Challanges</TextBlock>
+
+        <ListBox Name="challangeList">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Question}"></TextBlock>
+                        <TextBlock> </TextBlock>
+                        <TextBlock Text="{Binding Id}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
         <StackPanel Orientation="Horizontal">
+            <Button Click="AddNewChallange">New Challange</Button>
             <Button Click="RemoveExam">Remove Exam</Button>
         </StackPanel>
     </StackPanel>

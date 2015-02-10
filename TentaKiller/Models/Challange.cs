@@ -12,10 +12,17 @@ namespace TentaKiller.Models
         public String Question { get; set; }
         public String Answer { get; set; }
         public List<String> Lies { get; set; }
+        public virtual ICollection<Exam> Exams { get; set; }
 
-        public Challange()
+        public Challange(String id, String question, String answer, List<String> lies)
         {
-            this.Lies = new List<String>();
+            this.Id = id;
+            this.Question = question;
+            this.Answer = answer;
+            this.Lies = lies;
+            this.Exams = new HashSet<Exam>();
         }
+
+        public Challange() : this(System.Guid.NewGuid().ToString(), "Is this a question?", "Yes", new List<String>() { "No", "Maybe", "What is this?" } ) { }
     }
 }

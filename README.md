@@ -10,6 +10,7 @@ Student Edit Page
 Student View Page
 Exam Edit Page
 Exam View Page
+Challange View/Edit Page(s)
 Sync. (Bind) VoiceEnabled CheckBox with MainWindow.VoiceEnabled instead of ToggleButton.VoiceEnabled (BUG it is enabled, but reverse for some reason)
 
 # DONE

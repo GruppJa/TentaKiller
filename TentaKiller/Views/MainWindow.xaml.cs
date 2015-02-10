@@ -33,6 +33,7 @@ namespace TentaKiller.Views
 
         // Pages / Views
         public Page CurrentPage { get; set; }
+        public ChallangePage ChallangePage { get; set; }
         public ExamPage ExamPage { get; set; }
         public ExamsPage ExamsPage { get; set; }
         public StudentPage StudentPage { get; set; }
@@ -49,6 +50,7 @@ namespace TentaKiller.Views
             this.app = app;
 
             AddFeedback("Welcome to Tenta Killer (click me to remove me)");
+            ChallangePage = new ChallangePage(this);
             ExamPage = new ExamPage(this);
             ExamsPage = new ExamsPage(this);
             StudentPage = new StudentPage(this);

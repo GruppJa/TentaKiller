@@ -41,6 +41,8 @@ namespace TentaKiller
             CollectionViewSource.GetDefaultView(Data.Students.Local).MoveCurrentTo(null);
             Data.Exams.ToList<Exam>();
             CollectionViewSource.GetDefaultView(Data.Exams.Local).MoveCurrentTo(null);
+            Data.Challanges.ToList<Challange>();
+            CollectionViewSource.GetDefaultView(Data.Challanges.Local).MoveCurrentTo(null);
         }
     }
 }
