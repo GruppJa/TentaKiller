@@ -18,8 +18,11 @@ In Challange Page, list Exams it is part of.
 In InputWindow, focus on input field on open.
 When removing Exam, remove (ask first?) related Challanges (if the Challange is not related to any other exam)
 Refactor : rename Challange to Challenge (everywhere)
+Filterable/Searchable lists (Challanges, Exams, Students)
+Sortable lists (Challanges, Exams, Students)
 
 # DONE
+in Challange Page, list related Exams
 BUG sync / bind / ItemsSource ..
   navigate to a exam, add a challange, navigate back to same exam, CRASH!
 Challanges Page (list of challanges)

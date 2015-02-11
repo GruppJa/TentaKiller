@@ -31,6 +31,8 @@ namespace TentaKiller.Views
                 DataContext = value;
                 lieList.ClearValue(ItemsControl.ItemsSourceProperty);
                 lieList.ItemsSource = value.Lies;
+                examList.ClearValue(ItemsControl.ItemsSourceProperty);
+                examList.ItemsSource = value.Exams;
             }
         }
 
@@ -39,9 +41,20 @@ namespace TentaKiller.Views
             mainWindow = window;
             InitializeComponent();
             lieList.IsSynchronizedWithCurrentItem = true;
+            examList.IsSynchronizedWithCurrentItem = true;
+            examList.SelectionChanged += examList_SelectionChanged;
         }
 
-        public void AddLie(object sender, EventArgs ea)
+        protected void examList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (examList.SelectedItem == null) return;
+
+            mainWindow.Navigate((Exam)examList.SelectedItem);
+
+            examList.UnselectAll();
+        }
+
+        protected void AddLie(object sender, EventArgs ea)
         {
             InputWindow inputDialog = new InputWindow("New Lie", "An answer, but a false one.", "", mainWindow);
             if (inputDialog.ShowDialog() == true)
@@ -53,7 +66,7 @@ namespace TentaKiller.Views
             }
         }
 
-        private void EditSelectedLies(object sender, RoutedEventArgs ea)
+        protected void EditSelectedLies(object sender, RoutedEventArgs ea)
         {
             foreach (Lie lie in lieList.SelectedItems)
             {
@@ -74,7 +87,7 @@ namespace TentaKiller.Views
             Challange = challange;
         }
 
-        private void RemoveSelectedLies(object sender, RoutedEventArgs ea)
+        protected void RemoveSelectedLies(object sender, RoutedEventArgs ea)
         {
             foreach (Lie lie in lieList.SelectedItems)
             {

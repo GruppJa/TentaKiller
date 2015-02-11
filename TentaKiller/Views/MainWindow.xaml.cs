@@ -88,6 +88,12 @@ namespace TentaKiller.Views
             frame.NavigationService.Navigate(page);
         }
 
+        public void Navigate(Exam exam)
+        {
+            ExamPage.Exam = exam;
+            Navigate(ExamPage);
+        }
+
         public void ToggleVoiceEnabled(object sender, EventArgs ea)
         {
             if (VoiceEnabled = !VoiceEnabled) speaker.Speak("Voice enabled");

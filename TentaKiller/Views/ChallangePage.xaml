@@ -35,13 +35,25 @@
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Click="RemoveSelectedLies">Remove Selected</Button>
 
-            <TextBlock> </TextBlock>
+            <TextBlock></TextBlock>
 
             <Button Click="EditSelectedLies">Edit Selected</Button>
 
-            <TextBlock> </TextBlock>
+            <TextBlock></TextBlock>
 
             <Button Click="AddLie">New Lie</Button>
         </StackPanel>
+
+        <TextBlock HorizontalAlignment="Center" FontSize="14">In Exams</TextBlock>
+
+        <ListView Name="examList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackPanel>
 </Page>
