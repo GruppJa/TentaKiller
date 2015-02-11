@@ -14,7 +14,13 @@
         
         <TextBlock Text="{Binding Name}"></TextBlock>
 
-        <TextBlock HorizontalAlignment="Center" FontSize="12">Challanges</TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" FontSize="14">Challanges</TextBlock>
+
+            <TextBlock Text=" "/>
+            
+            <Button Click="AddNewChallange">+</Button>
+        </StackPanel>
 
         <ListBox Name="challangeList">
             <ListBox.ItemTemplate>
@@ -31,10 +37,6 @@
         </ListBox>
 
         <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Click="AddNewChallange" Width="90">New Challange</Button>
-            
-            <TextBlock Text=" "/>
-
             <Button Click="RemoveExam" Width="90">Remove Exam</Button>
             
             <TextBlock Text=" "/>

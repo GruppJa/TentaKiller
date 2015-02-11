@@ -7,7 +7,7 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="A list of Exams" ShowsNavigationUI="False">
     <DockPanel>
-        <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="14">Exams</TextBlock>
+        <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="16">Exams</TextBlock>
         
         <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
             <Button Content="New Exam" Height="20" Width="90" Click="CreateExam"/>                 
