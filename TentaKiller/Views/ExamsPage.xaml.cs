@@ -29,13 +29,13 @@ namespace TentaKiller.Views
         {
             mainWindow = window;
             InitializeComponent();
-            //listView.SelectionChanged += SelectionChanged;
-            listView.MouseDoubleClick += listView_MouseDoubleClick;
+            listView.SelectionChanged += SelectionChanged;
+            //listView.MouseDoubleClick += listView_MouseDoubleClick;
             listView.IsSynchronizedWithCurrentItem = true;
             listView.ItemsSource = window.app.Data.Exams.Local;
         }
 
-        void listView_MouseDoubleClick(object sender, MouseEventArgs e)
+        void SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (listView.SelectedItem == null)
                 return;
