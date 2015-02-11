@@ -30,6 +30,7 @@ namespace TentaKiller.Views
                 DataContext = value;
                 //  ItemsSource="{Binding Challanges, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True"
                 challangeList.IsSynchronizedWithCurrentItem = false;
+                challangeList.ClearValue(ItemsControl.ItemsSourceProperty);
                 challangeList.ItemsSource = value.Challanges;
             } }
 
@@ -37,15 +38,7 @@ namespace TentaKiller.Views
         {
             mainWindow = window;
             InitializeComponent();
-            challangeList.SelectionChanged += ChallangeSelectionChanged;
-        }
-
-        private void ChallangeSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (challangeList.SelectedItem == null) return;
-
-            mainWindow.ChallangePage.Challange = (Challange)challangeList.SelectedItem;
-            mainWindow.Navigate(mainWindow.ChallangePage);
+            challangeList.SelectionChanged += SelectionChanged;
         }
 
         public void AddNewChallange(object sender, EventArgs ea)
@@ -70,6 +63,14 @@ namespace TentaKiller.Views
                 mainWindow.AddFeedback("Removed exam '" + exam.Name + "' [" + exam.Id + "]");
                 mainWindow.Navigate(mainWindow.ExamsPage);
             }
+        }
+
+        protected void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (challangeList.SelectedItem == null) return;
+
+            mainWindow.ChallangePage.Challange = (Challange)challangeList.SelectedItem;
+            mainWindow.Navigate(mainWindow.ChallangePage);
         }
 
         public void TakeExam(object sender, EventArgs e)

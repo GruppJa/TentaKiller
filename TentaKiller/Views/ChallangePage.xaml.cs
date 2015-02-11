@@ -24,12 +24,21 @@ namespace TentaKiller.Views
         protected MainWindow mainWindow;
 
         protected Challange challange;
-        public Challange Challange { get { return challange; } set { challange = value; DataContext = value; } }
+        public Challange Challange {
+            get { return challange; }
+            set {
+                challange = value;
+                DataContext = value;
+                lieList.ClearValue(ItemsControl.ItemsSourceProperty);
+                lieList.ItemsSource = value.Lies;
+            }
+        }
 
         public ChallangePage(MainWindow window)
         {
             mainWindow = window;
             InitializeComponent();
+            lieList.IsSynchronizedWithCurrentItem = true;
         }
 
         public void AddLie(object sender, EventArgs ea)
@@ -37,9 +46,10 @@ namespace TentaKiller.Views
             InputWindow inputDialog = new InputWindow("New Lie", "An answer, but a false one.", "", mainWindow);
             if (inputDialog.ShowDialog() == true)
             {
-                Console.WriteLine("NEW VALUE IS" + inputDialog.Answer);
                 challange.Lies.Add(new Lie(inputDialog.Answer));
                 mainWindow.app.Data.SaveChanges();
+                // refresh
+                Challange = challange;
             }
         }
 
@@ -59,6 +69,9 @@ namespace TentaKiller.Views
             }
 
             mainWindow.app.Data.SaveChanges();
+
+            // refresh
+            Challange = challange;
         }
 
         private void RemoveSelectedLies(object sender, RoutedEventArgs ea)
@@ -74,6 +87,9 @@ namespace TentaKiller.Views
             }
 
             mainWindow.app.Data.SaveChanges();
+
+            // refresh
+            Challange = challange;
         }
     }
 }

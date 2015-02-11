@@ -12,16 +12,17 @@ Exam View/Edit Page
 Exam Take Page
 Challange View/Edit Page(s)
 Sync. (Bind) VoiceEnabled CheckBox with MainWindow.VoiceEnabled instead of ToggleButton.VoiceEnabled (BUG it is enabled, but reverse for some reason)
-BUG sync / bind / ItemsSource ..
-  navigate to a exam, add a challange, navigate back to same exam, CRASH!
 Add dates to all domain classes (Models)
 Remove Challange
+In Challange Page, list Exams it is part of.
 In InputWindow, focus on input field on open.
 When removing Exam, remove (ask first?) related Challanges (if the Challange is not related to any other exam)
-Challanges Page (list of challanges)
 Refactor : rename Challange to Challenge (everywhere)
 
 # DONE
+BUG sync / bind / ItemsSource ..
+  navigate to a exam, add a challange, navigate back to same exam, CRASH!
+Challanges Page (list of challanges)
 Add Lie
 Remove Lie
 Edit Lie

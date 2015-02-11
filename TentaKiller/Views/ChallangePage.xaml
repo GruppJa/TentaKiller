@@ -22,7 +22,7 @@
 
         <TextBlock HorizontalAlignment="Center" FontSize="14">Lies</TextBlock>
 
-        <ListView Name="lieList" ItemsSource="{Binding Path=Lies, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+        <ListView Name="lieList">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
