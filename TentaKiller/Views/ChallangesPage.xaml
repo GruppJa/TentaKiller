@@ -1,27 +1,28 @@
-﻿<Page x:Class="TentaKiller.Views.ExamsPage"
+﻿<Page x:Class="TentaKiller.Views.ChallangesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="A list of Exams" ShowsNavigationUI="False">
-    <DockPanel>
-        <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="16">Exams</TextBlock>
-        
-        <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-            <Button Content="New Exam" Height="20" Width="90" Click="CreateExam"/>                 
-        </DockPanel>
+	Title="Challanges List">
 
-        <ListView Name="listView">
+    <DockPanel>
+        <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="16">Challanges</TextBlock>
+
+        <StackPanel HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+            <Button Content="New Challange" Click="CreateChallange"/>
+        </StackPanel>
+
+        <ListView Name="challangeList">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock HorizontalAlignment="Right" Text="{Binding Name}"></TextBlock>
+                        <TextBlock Text="{Binding Question}"></TextBlock>
                         
                         <TextBlock Text=" "/>
                         
-                        <TextBlock HorizontalAlignment="Left" FontSize="10" Text="{Binding Id}"></TextBlock>
+                        <TextBlock FontSize="10" Text="{Binding Id}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

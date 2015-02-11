@@ -34,7 +34,7 @@ namespace TentaKiller.Views
 
         public void AddLie(object sender, EventArgs ea)
         {
-            InputWindow inputDialog = new InputWindow("New Lie", "An answer, but a false one.", "");
+            InputWindow inputDialog = new InputWindow("New Lie", "An answer, but a false one.", "", mainWindow);
             if (inputDialog.ShowDialog() == true)
             {
                 Console.WriteLine("NEW VALUE IS" + inputDialog.Answer);

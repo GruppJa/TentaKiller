@@ -30,7 +30,7 @@
                         
                         <TextBlock Text=" " />
 
-                        <TextBlock Text="{Binding Id}"></TextBlock>
+                        <TextBlock FontSize="10" Text="{Binding Id}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

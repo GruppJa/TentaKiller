@@ -7,7 +7,7 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="ChallangePage">
 
-    <StackPanel Margin="10">
+    <StackPanel>
         <TextBlock HorizontalAlignment="Center" FontSize="16">Challange</TextBlock>
 
         <TextBlock HorizontalAlignment="Center" FontSize="10" Text="{Binding Id}"></TextBlock>

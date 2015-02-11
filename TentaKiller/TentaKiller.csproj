@@ -68,6 +68,9 @@
     <Compile Include="Views\ChallangePage.xaml.cs">
       <DependentUpon>ChallangePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChallangesPage.xaml.cs">
+      <DependentUpon>ChallangesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExamsPage.xaml.cs">
       <DependentUpon>ExamsPage.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
       <DependentUpon>TakeExam.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\ChallangePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChallangesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,11 +2,11 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="TentaKiller" Height="350" Width="525">
-    <DockPanel>
-        <ListView Name="feedbackList" DockPanel.Dock="Top" MaxHeight="47">
+    <DockPanel Margin="10">
+        <ListView BorderThickness="0" Name="feedbackList" DockPanel.Dock="Top" MaxHeight="47">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="0 1" Orientation="Horizontal">
                         <TextBlock HorizontalAlignment="Left" Text="{Binding}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
@@ -14,11 +14,14 @@
         </ListView>
 
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Margin="5" Name="ViewChallangesButton" Click="ViewChallanges">Challanges</Button>
+
             <Button Margin="5" Name="ViewExamsButton" Click="ViewExams">Exams</Button>
+            
             <Button Margin="5" Name="ViewStudentsButton" Click="ViewStudents">Students</Button>
             <CheckBox IsChecked="{Binding Path=MainWindow.VoiceEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ToggleVoiceEnabled" Background="White"/>
         </StackPanel>
 
-        <Frame Name="frame" NavigationUIVisibility="Hidden"></Frame>
+        <Frame Margin="0 5" Name="frame" NavigationUIVisibility="Hidden"></Frame>
     </DockPanel>
 </Window>

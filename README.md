@@ -18,6 +18,8 @@ Add dates to all domain classes (Models)
 Remove Challange
 In InputWindow, focus on input field on open.
 When removing Exam, remove (ask first?) related Challanges (if the Challange is not related to any other exam)
+Challanges Page (list of challanges)
+Refactor : rename Challange to Challenge (everywhere)
 
 # DONE
 Add Lie
