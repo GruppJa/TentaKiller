@@ -20,10 +20,12 @@ namespace TentaKiller.Views
     public partial class InputWindow : Window
     {
 
-        public InputWindow(string title, string question, string defaultAnswer = "")
+        public InputWindow(string title, string question, string defaultAnswer = "", Window owner = null)
         {
-            InitializeComponent();
             Title = title;
+            Owner = owner;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            InitializeComponent();
             lblQuestion.Content = question;
             txtAnswer.Text = defaultAnswer;
         }
