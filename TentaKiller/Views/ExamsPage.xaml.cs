@@ -54,12 +54,5 @@ namespace TentaKiller.Views
             mainWindow.Navigate(mainWindow.ExamPage);
             mainWindow.AddFeedback("Exam created (" + exam.Id + ")");
         }
-
-        public void TakeExam(object sender, EventArgs e)
-        {
-            Exam exam = new Exam();
-            mainWindow.app.Data.SaveChanges();
-            mainWindow.Navigate(mainWindow.TakeExamPage);
-        }
     }
 }

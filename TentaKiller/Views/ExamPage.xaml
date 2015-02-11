@@ -30,12 +30,16 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Orientation="Horizontal">
-            <Button Click="AddNewChallange">New Challange</Button>
+        <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Click="AddNewChallange" Width="90">New Challange</Button>
             
             <TextBlock Text=" "/>
 
-            <Button Click="RemoveExam">Remove Exam</Button>
+            <Button Click="RemoveExam" Width="90">Remove Exam</Button>
+            
+            <TextBlock Text=" "/>
+            
+            <Button Click="TakeExam" Width="90">Take Exam</Button>
         </StackPanel>
     </StackPanel>
 </Page>

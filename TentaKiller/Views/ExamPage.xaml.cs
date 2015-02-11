@@ -70,5 +70,12 @@ namespace TentaKiller.Views
                 mainWindow.Navigate(mainWindow.ExamsPage);
             }
         }
+
+        public void TakeExam(object sender, EventArgs e)
+        {
+            Exam exam = new Exam();
+            mainWindow.app.Data.SaveChanges();
+            mainWindow.Navigate(mainWindow.TakeExamPage);
+        }
     }
 }
