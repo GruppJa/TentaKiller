@@ -31,5 +31,49 @@ namespace TentaKiller.Views
             mainWindow = window;
             InitializeComponent();
         }
+
+        public void AddLie(object sender, EventArgs ea)
+        {
+            InputWindow inputDialog = new InputWindow("New Lie", "An answer, but a false one.", "");
+            if (inputDialog.ShowDialog() == true)
+            {
+                Console.WriteLine("NEW VALUE IS" + inputDialog.Answer);
+                challange.Lies.Add(new Lie(inputDialog.Answer));
+                mainWindow.app.Data.SaveChanges();
+            }
+        }
+
+        private void EditSelectedLies(object sender, RoutedEventArgs ea)
+        {
+            foreach (Lie lie in lieList.SelectedItems)
+            {
+                InputWindow inputDialog = new InputWindow("Editing Lie", "An answer, but a false one.", lie.Text);
+                if (inputDialog.ShowDialog() == true)
+                {
+                    // An unhandled exception of type 'System.InvalidOperationException' occurred in PresentationFramework.dll
+                    //Additional information: Operation is not valid while ItemsSource is in use. Access and modify elements with ItemsControl.ItemsSource instead.
+                    //lieList.Items.Remove(current);
+                    //lieList.Items.Add(inputDialog.Answer);
+                    lie.Text = inputDialog.Answer;
+                }
+            }
+
+            mainWindow.app.Data.SaveChanges();
+        }
+
+        private void RemoveSelectedLies(object sender, RoutedEventArgs ea)
+        {
+            foreach (Lie lie in lieList.SelectedItems)
+            {
+                MessageBoxResult result = MessageBox.Show("Are you certain you'd like to remove this lie? (This is irreversable).", "Remove Lie?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+                if (result == MessageBoxResult.Yes)
+                {
+                    challange.Lies.Remove(lie);
+                    mainWindow.app.Data.Lies.Local.Remove(lie);
+                }
+            }
+
+            mainWindow.app.Data.SaveChanges();
+        }
     }
 }

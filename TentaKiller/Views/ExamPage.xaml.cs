@@ -37,6 +37,15 @@ namespace TentaKiller.Views
         {
             mainWindow = window;
             InitializeComponent();
+            challangeList.SelectionChanged += ChallangeSelectionChanged;
+        }
+
+        private void ChallangeSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (challangeList.SelectedItem == null) return;
+
+            mainWindow.ChallangePage.Challange = (Challange)challangeList.SelectedItem;
+            mainWindow.Navigate(mainWindow.ChallangePage);
         }
 
         public void AddNewChallange(object sender, EventArgs ea)

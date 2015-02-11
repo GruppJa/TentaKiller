@@ -8,20 +8,25 @@
 	Title="A list of Exams" ShowsNavigationUI="False">
     <DockPanel>
         <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="14">Exams</TextBlock>
+        
         <DockPanel DockPanel.Dock="Bottom">
             <Button Content="New Exam" DockPanel.Dock="Left" HorizontalAlignment="Left" Height="20" Width="70" Click="CreateExam" />
+            
             <Button Content="Take Exam" DockPanel.Dock="Left" HorizontalAlignment="Right" Height="20" Width="70" />
         </DockPanel>
 
-        <ListView Name="listView"  Width="298">
+        <ListView Name="listView">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock HorizontalAlignment="Left" Text="{Binding Id}"></TextBlock>
                         <TextBlock HorizontalAlignment="Right" Text="{Binding Name}"></TextBlock>
+                        
+                        <TextBlock Text=" "/>
+                        
+                        <TextBlock HorizontalAlignment="Left" Text="{Binding Id}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        </DockPanel>
+    </DockPanel>
 </Page>

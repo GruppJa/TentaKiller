@@ -11,18 +11,18 @@ namespace TentaKiller.Models
         public String Id { get; set; }
         public String Question { get; set; }
         public String Answer { get; set; }
-        public List<String> Lies { get; set; }
+        public virtual ICollection<Lie> Lies { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }
 
-        public Challange(String id, String question, String answer, List<String> lies)
+        public Challange(String id, String question, String answer)
         {
             this.Id = id;
             this.Question = question;
             this.Answer = answer;
-            this.Lies = lies;
+            this.Lies = new HashSet<Lie>();
             this.Exams = new HashSet<Exam>();
         }
 
-        public Challange() : this(System.Guid.NewGuid().ToString(), "Is this a question?", "Yes", new List<String>() { "No", "Maybe", "What is this?" } ) { }
+        public Challange() : this(System.Guid.NewGuid().ToString(), "Is this a question?", "Yes" ) { }
     }
 }

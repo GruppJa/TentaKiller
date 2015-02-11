@@ -14,6 +14,7 @@ namespace TentaKiller
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Exam> Exams { get; set; }
+        public DbSet<Lie> Lies { get; set; }
         public DbSet<Challange> Challanges { get; set; }
     }
 }

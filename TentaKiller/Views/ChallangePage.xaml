@@ -11,18 +11,35 @@
         <TextBlock HorizontalAlignment="Center" Text="{Binding Id}"></TextBlock>
 
         <TextBlock HorizontalAlignment="Center" FontSize="14">Question</TextBlock>
-        <TextBlock Text="{Binding Question}"></TextBlock>
+
+        <TextBox Text="{Binding Question}"></TextBox>
 
         <TextBlock HorizontalAlignment="Center" FontSize="14">Answer</TextBlock>
-        <TextBlock Text="{Binding Answer}"></TextBlock>
+
+        <TextBox Text="{Binding Answer}"></TextBox>
 
         <TextBlock HorizontalAlignment="Center" FontSize="14">Lies</TextBlock>
-        <ListView ItemsSource="{Binding Lies}">
+
+        <ListView Name="lieList" ItemsSource="{Binding Path=Lies, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding}"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Text}"></TextBlock>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Click="RemoveSelectedLies">Remove Selected</Button>
+
+            <TextBlock> </TextBlock>
+
+            <Button Click="EditSelectedLies">Edit Selected</Button>
+
+            <TextBlock> </TextBlock>
+
+            <Button Click="AddLie">New Lie</Button>
+        </StackPanel>
     </StackPanel>
 </Page>

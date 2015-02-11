@@ -8,13 +8,18 @@ Voice in own thread
 Go to selected Student in Students Page
 Student Edit Page
 Student View Page
-Exam Edit Page
-Exam View Page
+Exam View/Edit Page
+Exam Take Page
 Challange View/Edit Page(s)
 Sync. (Bind) VoiceEnabled CheckBox with MainWindow.VoiceEnabled instead of ToggleButton.VoiceEnabled (BUG it is enabled, but reverse for some reason)
 BUG navigate to a exam, add a challange, navigate back to same exam, CRASH!
+Add dates to all domain classes (Models)
+Remove Challange
 
 # DONE
+Add Lie
+Remove Lie
+Edit Lie
 Remove Exam
 Feedback displayer (informational and errors)
 BUG Navigation occurs initally to exam page due to initial selection in exams page triggers SelectionChanged (SelectExam(..))

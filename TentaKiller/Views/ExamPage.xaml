@@ -11,6 +11,7 @@
         <TextBlock HorizontalAlignment="Center" FontSize="16">Exam</TextBlock>
 
         <TextBlock Text="{Binding Id}"></TextBlock>
+        
         <TextBlock Text="{Binding Name}"></TextBlock>
 
         <TextBlock HorizontalAlignment="Center" FontSize="12">Challanges</TextBlock>
@@ -20,7 +21,9 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Question}"></TextBlock>
-                        <TextBlock> </TextBlock>
+                        
+                        <TextBlock Text=" " />
+
                         <TextBlock Text="{Binding Id}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
@@ -29,6 +32,9 @@
 
         <StackPanel Orientation="Horizontal">
             <Button Click="AddNewChallange">New Challange</Button>
+            
+            <TextBlock Text=" "/>
+
             <Button Click="RemoveExam">Remove Exam</Button>
         </StackPanel>
     </StackPanel>

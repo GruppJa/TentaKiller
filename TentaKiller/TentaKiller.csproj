@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Lie.cs" />
     <Compile Include="TentaKillerDBContext.cs" />
     <Compile Include="Views\ChallangePage.xaml.cs">
       <DependentUpon>ChallangePage.xaml</DependentUpon>
@@ -73,6 +74,9 @@
     <Compile Include="Views\ExamPage.xaml.cs">
       <DependentUpon>ExamPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\InputWindow.xaml.cs">
+      <DependentUpon>InputWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StudentPage.xaml.cs">
       <DependentUpon>StudentPage.xaml</DependentUpon>
     </Compile>
@@ -80,7 +84,14 @@
       <DependentUpon>StudentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Views\TakeExam.xaml.cs">
+      <DependentUpon>TakeExam.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\ChallangePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InputWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,6 +124,10 @@
     <Page Include="Views\StudentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TakeExam.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
