@@ -38,6 +38,7 @@ namespace TentaKiller.Views
         public ExamsPage ExamsPage { get; set; }
         public StudentPage StudentPage { get; set; }
         public StudentsPage StudentsPage { get; set; }
+        public TakeExamPage TakeExamPage { get; set; }
 
         // Speech / Voice
         protected SpeechSynthesizer speaker = new SpeechSynthesizer();
@@ -56,6 +57,8 @@ namespace TentaKiller.Views
             ExamPage = new ExamPage(this);
             StudentPage = new StudentPage(this);
             StudentsPage = new StudentsPage(this);
+            TakeExamPage = new TakeExamPage(this);
+            
 
             InitializeComponent();
 

@@ -25,18 +25,17 @@ namespace TentaKiller.Views
     {
         protected MainWindow mainWindow;
 
-        
-
         public ExamsPage(MainWindow window)
         {
             mainWindow = window;
             InitializeComponent();
-            listView.SelectionChanged += SelectionChanged;
+            //listView.SelectionChanged += SelectionChanged;
+            listView.MouseDoubleClick += listView_MouseDoubleClick;
             listView.IsSynchronizedWithCurrentItem = true;
             listView.ItemsSource = window.app.Data.Exams.Local;
         }
 
-        void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        void listView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listView.SelectedItem == null)
                 return;
@@ -53,6 +52,12 @@ namespace TentaKiller.Views
             mainWindow.ExamPage.Exam = exam;
             mainWindow.Navigate(mainWindow.ExamPage);
             mainWindow.AddFeedback("Exam created (" + exam.Id + ")");
+        }
+        public void TakeExam(object sender, EventArgs e)
+        {
+            Exam exam = new Exam();
+            mainWindow.app.Data.SaveChanges();
+            mainWindow.Navigate(mainWindow.TakeExamPage);
         }
     }
 }
