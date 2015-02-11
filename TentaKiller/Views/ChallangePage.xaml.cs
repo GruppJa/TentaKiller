@@ -47,7 +47,7 @@ namespace TentaKiller.Views
         {
             foreach (Lie lie in lieList.SelectedItems)
             {
-                InputWindow inputDialog = new InputWindow("Editing Lie", "An answer, but a false one.", lie.Text);
+                InputWindow inputDialog = new InputWindow("Editing Lie", "An answer, but a false one.", lie.Text, mainWindow);
                 if (inputDialog.ShowDialog() == true)
                 {
                     // An unhandled exception of type 'System.InvalidOperationException' occurred in PresentationFramework.dll
