@@ -72,7 +72,13 @@ namespace TentaKiller.Views
             // Add at the beginning so it displays first in when displaying.
             feedback.Insert(0, message);
         }
-        
+
+        public bool Confirm(string title, string question)
+        {
+            MessageBoxResult result = MessageBox.Show(question, title, MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            return result == MessageBoxResult.Yes;
+        }
+
         protected void FeedbackSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (feedbackList.SelectedItem == null)

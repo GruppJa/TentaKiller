@@ -86,13 +86,22 @@ namespace TentaKiller.Views
             // refresh
             Challange = challange;
         }
+        protected void RemoveChallange(object sender, RoutedEventArgs ea)
+        {
+            if (mainWindow.Confirm("Remove Challange?", "Are you certain you'd like to remove this Challange? (This is irreversable)."))
+            {
+                mainWindow.app.Data.Challanges.Local.Remove(Challange);
+                mainWindow.app.Data.SaveChanges();
+                mainWindow.Navigate(mainWindow.ChallangesPage);
+            }
+        }
+        
 
         protected void RemoveSelectedLies(object sender, RoutedEventArgs ea)
         {
             foreach (Lie lie in lieList.SelectedItems)
             {
-                MessageBoxResult result = MessageBox.Show("Are you certain you'd like to remove this lie? (This is irreversable).", "Remove Lie?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
-                if (result == MessageBoxResult.Yes)
+                if (mainWindow.Confirm("Remove Lie?", "Are you certain you'd like to remove this lie? (This is irreversable)."))
                 {
                     challange.Lies.Remove(lie);
                     mainWindow.app.Data.Lies.Local.Remove(lie);

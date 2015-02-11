@@ -20,6 +20,7 @@ When removing Exam, remove (ask first?) related Challanges (if the Challange is 
 Refactor : rename Challange to Challenge (everywhere)
 Filterable/Searchable lists (Challanges, Exams, Students)
 Sortable lists (Challanges, Exams, Students)
+Center confirmation dialog (want to remove challange?)
 
 # DONE
 in Challange Page, list related Exams

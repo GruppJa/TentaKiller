@@ -32,7 +32,6 @@ namespace TentaKiller.Views
             challangeList.ItemsSource = window.app.Data.Challanges.Local;
         }
 
-
         void SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (challangeList.SelectedItem == null)
