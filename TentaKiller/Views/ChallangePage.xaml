@@ -20,9 +20,21 @@
 
         <TextBox Text="{Binding Answer}"></TextBox>
 
-        <TextBlock HorizontalAlignment="Center" FontSize="14">Lies</TextBlock>
+        <Grid>
+            <DockPanel HorizontalAlignment="Center">
+                <TextBlock FontSize="14">Lies</TextBlock>
+            </DockPanel>
 
-        <ListView Name="lieList">
+            <DockPanel HorizontalAlignment="Right">
+                <Button Margin="1 4 1 0" Click="EditSelectedLies">Edit</Button>
+
+                <Button Margin="1 4 1 0" Click="AddLie">+</Button>
+
+                <Button Margin="1 4 1 0" Click="RemoveSelectedLies">-</Button>
+            </DockPanel>
+        </Grid>
+
+        <ListView  Name="lieList">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -31,14 +43,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Margin="5" Click="RemoveSelectedLies">Remove Selected</Button>
-
-            <Button Margin="5" Click="EditSelectedLies">Edit Selected</Button>
-
-            <Button Margin="5" Click="AddLie">New Lie</Button>
-        </StackPanel>
 
         <TextBlock HorizontalAlignment="Center" FontSize="14">In Exams</TextBlock>
 
@@ -51,7 +55,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Margin="5" Click="RemoveChallange">Remove Challange</Button>
         </StackPanel>
