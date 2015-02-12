@@ -8,10 +8,12 @@
 	Title="Student Page">
 
     <StackPanel>
-        <TextBlock FontSize="14">Student</TextBlock>
-        <StackPanel Orientation="Vertical">
-            <TextBlock Text="{Binding Id}"></TextBlock>
-            <TextBlock Text="{Binding Name}"></TextBlock>
-        </StackPanel>
+        <TextBlock HorizontalAlignment="Center" FontSize="14">Student</TextBlock>
+
+        <TextBlock HorizontalAlignment="Center" FontSize="10" Text="{Binding Id}"></TextBlock>
+
+        <TextBox Text="{Binding Path=Name, Mode=TwoWay}"></TextBox>
+
+        <Button HorizontalAlignment="Center" Margin="5" Click="RemoveStudent">Remove Student</Button>
     </StackPanel>
 </Page>
