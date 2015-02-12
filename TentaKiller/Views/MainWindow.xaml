@@ -15,12 +15,18 @@
         </ListView>
 
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Margin="5" Name="ViewChallangesButton" Click="ViewChallanges">Challanges</Button>
+            <Button Margin="5" x:Name="ViewChallangesButton" Click="ViewChallanges">
+                <Image Height="128" Source="/TentaKiller;component/puzzleIcon.png" Stretch="Fill" Width="128"/>
+            </Button>
 
-            <Button Margin="5" Name="ViewExamsButton" Click="ViewExams">Exams</Button>
-            
-            <Button Margin="5" Name="ViewStudentsButton" Click="ViewStudents">Students</Button>
-            
+            <Button Margin="5" x:Name="ViewExamsButton" Click="ViewExams">
+                <Image Height="128" Source="/TentaKiller;component/penIcon.png" Stretch="Fill" Width="128"/>
+            </Button>
+
+            <Button Margin="5" x:Name="ViewStudentsButton" Click="ViewStudents">
+                <Image Height="128" Source="/TentaKiller;component/studentIcon.png" Stretch="Fill" Width="128"/>
+            </Button>
+
             <CheckBox IsChecked="{Binding Path=MainWindow.VoiceEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ToggleVoiceEnabled" Background="White"/>
         </StackPanel>
 
