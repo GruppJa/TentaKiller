@@ -2,6 +2,13 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="TentaKiller" Height="350" Width="525">
+    <Window.Resources>
+        <BitmapImage x:Key="TentaKillerLogo" UriSource="/TentaKiller;component/Resources/TentaKiller.png" />
+        <BitmapImage x:Key="ExamIcon" UriSource="/TentaKiller;component/Resources/penIcon.png" />
+        <BitmapImage x:Key="ChallangeIcon" UriSource="/TentaKiller;component/Resources/puzzleIcon.png" />
+        <BitmapImage x:Key="StudentIcon" UriSource="/TentaKiller;component/Resources/studentIcon.png" />
+    </Window.Resources>
+    
     <DockPanel Margin="10">
         <!-- TODO MaxHeight should be three (or X) rows (not pixels / points / whatever this unit is) -->
         <ListView BorderThickness="0" Name="feedbackList" DockPanel.Dock="Bottom" MaxHeight="47">
@@ -16,15 +23,15 @@
 
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Margin="5" x:Name="ViewChallangesButton" Click="ViewChallanges">
-                <Image Height="128" Source="/TentaKiller;component/Resources/puzzleIcon.png" Stretch="Fill" Width="128"/>
+                <Image Height="128" Source="{StaticResource ChallangeIcon}" Stretch="Fill" Width="128"/>
             </Button>
 
             <Button Margin="5" x:Name="ViewExamsButton" Click="ViewExams">
-                <Image Height="128" Source="/TentaKiller;component/Resources/penIcon.png" Stretch="Fill" Width="128"/>
+                <Image Height="128" Source="{StaticResource ExamIcon}" Stretch="Fill" Width="128"/>
             </Button>
 
             <Button Margin="5" x:Name="ViewStudentsButton" Click="ViewStudents">
-                <Image Height="128" Source="/TentaKiller;component/Resources/studentIcon.png" Stretch="Fill" Width="128"/>
+                <Image Height="128" Source="{StaticResource StudentIcon}" Stretch="Fill" Width="128"/>
             </Button>
 
             <CheckBox IsChecked="{Binding Path=MainWindow.VoiceEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ToggleVoiceEnabled" Background="White"/>
