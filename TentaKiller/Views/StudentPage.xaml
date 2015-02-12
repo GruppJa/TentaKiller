@@ -8,7 +8,7 @@
 	Title="Student Page">
 
     <StackPanel>
-        <TextBlock HorizontalAlignment="Center" FontSize="14">Student</TextBlock>
+        <TextBlock HorizontalAlignment="Center" FontSize="16">Student</TextBlock>
 
         <TextBlock HorizontalAlignment="Center" FontSize="10" Text="{Binding Id}"></TextBlock>
 

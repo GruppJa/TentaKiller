@@ -18,11 +18,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Question}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Right" Text="{Binding Question}"></TextBlock>
                         
                         <TextBlock Text=" "/>
                         
-                        <TextBlock FontSize="10" Text="{Binding Id}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Left" FontSize="10" Text="{Binding Id}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
