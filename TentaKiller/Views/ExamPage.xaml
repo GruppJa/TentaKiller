@@ -14,13 +14,15 @@
         
         <TextBox Text="{Binding Path=Name, Mode=TwoWay}"></TextBox>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock HorizontalAlignment="Center" FontSize="14">Challanges</TextBlock>
-
-            <TextBlock Text=" "/>
+        <Grid>
+            <DockPanel HorizontalAlignment="Center">
+                <TextBlock FontSize="14">Challanges</TextBlock>
+            </DockPanel>
             
-            <Button Margin="1" Click="AddNewChallange">+</Button>
-        </StackPanel>
+            <DockPanel HorizontalAlignment="Right">
+                <Button Margin="1 4 1 0" Click="AddNewChallange">+</Button>
+            </DockPanel>
+        </Grid>
 
         <ListBox Name="challangeList">
             <ListBox.ItemTemplate>
