@@ -51,7 +51,8 @@ namespace TentaKiller.Views
 
             this.app = app;
 
-            AddFeedback("Welcome to Tenta Killer (click me to remove me)");
+            AddFeedback("This is the a feedback list. Click on a message to remove it.");
+            AddFeedback("Welcome to Tenta Killer! :)");
 
             ChallangePage = new ChallangePage(this);
             ChallangesPage = new ChallangesPage(this);
@@ -85,6 +86,7 @@ namespace TentaKiller.Views
                 return;
 
             feedback.Remove((String)feedbackList.SelectedItem);
+            feedbackList.UnselectAll();
         }
 
         public void Navigate(Page page)

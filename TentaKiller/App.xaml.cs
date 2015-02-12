@@ -32,7 +32,7 @@ namespace TentaKiller
             Window = new MainWindow(this);
             Window.Show();
 
-            // Populate local data
+            // Populate local data (and set default selections to none)
             // TODO Find and use that Load() method the documentation talks about...
             // DbSet<Entity> https://msdn.microsoft.com/en-us/library/gg696460(v=vs.113).aspx
             // ObjectSet<Entity> https://msdn.microsoft.com/en-us/library/dn159797(v=vs.113).aspx
@@ -43,6 +43,8 @@ namespace TentaKiller
             CollectionViewSource.GetDefaultView(Data.Exams.Local).MoveCurrentTo(null);
             Data.Challanges.ToList<Challange>();
             CollectionViewSource.GetDefaultView(Data.Challanges.Local).MoveCurrentTo(null);
+            Data.Lies.ToList<Lie>();
+            CollectionViewSource.GetDefaultView(Data.Lies.Local).MoveCurrentTo(null);
         }
     }
 }

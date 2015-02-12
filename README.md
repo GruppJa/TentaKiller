@@ -21,6 +21,8 @@ Refactor : rename Challange to Challenge (everywhere)
 Filterable/Searchable lists (Challanges, Exams, Students)
 Sortable lists (Challanges, Exams, Students)
 Center confirmation dialog (want to remove challange?)
+BUG after editing the list of Lies in a challange, navigation to exam occurs
+BUG clearing one message clears all (sometimes)
 
 # DONE
 in Challange Page, list related Exams

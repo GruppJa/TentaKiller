@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="TentaKiller" Height="350" Width="525">
     <DockPanel Margin="10">
-        <ListView BorderThickness="0" Name="feedbackList" DockPanel.Dock="Top" MaxHeight="47">
+        <!-- TODO MaxHeight should be three (or X) rows (not pixels / points / whatever this unit is) -->
+        <ListView BorderThickness="0" Name="feedbackList" DockPanel.Dock="Bottom" MaxHeight="47">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0 1" Orientation="Horizontal">
@@ -13,12 +14,13 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Margin="5" Name="ViewChallangesButton" Click="ViewChallanges">Challanges</Button>
 
             <Button Margin="5" Name="ViewExamsButton" Click="ViewExams">Exams</Button>
             
             <Button Margin="5" Name="ViewStudentsButton" Click="ViewStudents">Students</Button>
+            
             <CheckBox IsChecked="{Binding Path=MainWindow.VoiceEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ToggleVoiceEnabled" Background="White"/>
         </StackPanel>
 

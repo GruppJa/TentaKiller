@@ -11,7 +11,7 @@
         <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="16">Challanges</TextBlock>
 
         <StackPanel HorizontalAlignment="Center" DockPanel.Dock="Bottom">
-            <Button Content="New Challange" Click="CreateChallange"/>
+            <Button Margin="5" Content="New Challange" Click="CreateChallange"/>
         </StackPanel>
 
         <ListView Name="challangeList">

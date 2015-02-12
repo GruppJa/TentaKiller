@@ -10,7 +10,7 @@
         <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="16">Exams</TextBlock>
         
         <DockPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-            <Button Content="New Exam" Height="20" Width="90" Click="CreateExam"/>                 
+            <Button Margin="5" Content="New Exam" Click="CreateExam"/>
         </DockPanel>
 
         <ListView Name="listView">
