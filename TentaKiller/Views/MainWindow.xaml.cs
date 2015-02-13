@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Reflection;
 using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,11 +27,6 @@ namespace TentaKiller.Views
     {
         public App app { get; set; }
 
-        // Feedback (for user)
-        protected ObservableCollection<String> feedback = new ObservableCollection<string>();
-        public ObservableCollection<String> Feedback { get { return feedback; } }
-
-
         // Pages / Views
         public Page CurrentPage { get; set; }
         public ChallangePage ChallangePage { get; set; }
@@ -51,9 +47,6 @@ namespace TentaKiller.Views
 
             this.app = app;
 
-            AddFeedback("This is the a feedback list. Click on a message to remove it.");
-            AddFeedback("Welcome to Tenta Killer! :)");
-
             ChallangePage = new ChallangePage(this);
             ChallangesPage = new ChallangesPage(this);
             ExamsPage = new ExamsPage(this);
@@ -61,32 +54,23 @@ namespace TentaKiller.Views
             StudentPage = new StudentPage(this);
             StudentsPage = new StudentsPage(this);
             TakeExamPage = new TakeExamPage(this);
-            
 
             InitializeComponent();
 
-            feedbackList.SetBinding(ItemsControl.ItemsSourceProperty, new Binding() { Source = feedback });
-            feedbackList.SelectionChanged += FeedbackSelectionChanged;
+            AddFeedback("This is the a feedback list. Click on a message to remove it.");
+            AddFeedback("Welcome to Tenta Killer! :)");
         }
+
 
         public void AddFeedback(string message) {
             // Add at the beginning so it displays first in when displaying.
-            feedback.Insert(0, message);
+            feedbackList.Items.Insert(0, message);
         }
 
         public bool Confirm(string title, string question)
         {
             MessageBoxResult result = MessageBox.Show(question, title, MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
             return result == MessageBoxResult.Yes;
-        }
-
-        protected void FeedbackSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (feedbackList.SelectedItem == null)
-                return;
-
-            feedback.Remove((String)feedbackList.SelectedItem);
-            feedbackList.UnselectAll();
         }
 
         public void Navigate(Page page)
@@ -96,10 +80,27 @@ namespace TentaKiller.Views
             frame.NavigationService.Navigate(page);
         }
 
+        public void Navigate(Challange challange)
+        {
+            ChallangePage.Challange = challange;
+            Navigate(ChallangePage);
+        }
+
         public void Navigate(Exam exam)
         {
             ExamPage.Exam = exam;
             Navigate(ExamPage);
+        }
+
+        public void Navigate(Student student)
+        {
+            StudentPage.Student = student;
+            Navigate(StudentPage);
+        }
+
+        protected void RemoveFeedback(object sender, RoutedEventArgs ea)
+        {
+            feedbackList.Items.Remove(((TextBlock)sender).Text);
         }
 
         public void ToggleVoiceEnabled(object sender, EventArgs ea)

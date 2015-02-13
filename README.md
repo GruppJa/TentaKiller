@@ -22,9 +22,9 @@ Filterable/Searchable lists (Challanges, Exams, Students)
 Sortable lists (Challanges, Exams, Students)
 Center confirmation dialog (want to remove challange?)
 BUG after editing the list of Lies in a challange, navigation to exam occurs
-BUG clearing one message clears all (sometimes)
 
 # DONE
+BUG clearing one message clears all (sometimes)
 in Challange Page, list related Exams
 BUG sync / bind / ItemsSource ..
   navigate to a exam, add a challange, navigate back to same exam, CRASH!

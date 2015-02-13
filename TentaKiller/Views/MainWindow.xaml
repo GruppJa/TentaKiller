@@ -14,9 +14,7 @@
         <ListView BorderThickness="0" Name="feedbackList" DockPanel.Dock="Bottom" MaxHeight="47">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="0 1" Orientation="Horizontal">
-                        <TextBlock HorizontalAlignment="Left" Text="{Binding}"></TextBlock>
-                    </StackPanel>
+                    <TextBlock Margin="1" MouseLeftButtonUp="RemoveFeedback" HorizontalAlignment="Left" Text="{Binding}"></TextBlock>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
