@@ -34,7 +34,7 @@
             </DockPanel>
         </Grid>
 
-        <ListView  Name="lieList">
+        <ListView Name="lieList">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
