@@ -61,8 +61,9 @@ namespace TentaKiller.Views
             {
                 challange.Lies.Add(new Lie(inputDialog.Answer));
                 mainWindow.app.Data.SaveChanges();
-                // refresh
-                Challange = challange;
+
+                // refresh (TODO this is a hack, should not be needed)
+                mainWindow.Navigate(Challange);
             }
         }
 
@@ -83,8 +84,8 @@ namespace TentaKiller.Views
 
             mainWindow.app.Data.SaveChanges();
 
-            // refresh
-            Challange = challange;
+            // refresh (TODO this is a hack, should not be needed)
+            mainWindow.Navigate(Challange);
         }
         protected void RemoveChallange(object sender, RoutedEventArgs ea)
         {
@@ -109,8 +110,8 @@ namespace TentaKiller.Views
 
             mainWindow.app.Data.SaveChanges();
 
-            // refresh
-            Challange = challange;
+            // refresh (TODO this is a hack, should not be needed)
+            mainWindow.Navigate(Challange);
         }
     }
 }

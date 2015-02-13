@@ -8,22 +8,23 @@ Voice in own thread
 Go to selected Student in Students Page
 Student Edit Page
 Student View Page
-Exam View/Edit Page
 Exam Take Page
-Challange View/Edit Page(s)
 Sync. (Bind) VoiceEnabled CheckBox with MainWindow.VoiceEnabled instead of ToggleButton.VoiceEnabled (BUG it is enabled, but reverse for some reason)
 Add dates to all domain classes (Models)
-In Challange Page, list Exams it is part of.
 In InputWindow, focus on input field on open.
 When removing Exam, remove (ask first?) related Challanges (if the Challange is not related to any other exam)
 Refactor : rename Challange to Challenge (everywhere)
 Filterable/Searchable lists (Challanges, Exams, Students)
 Sortable lists (Challanges, Exams, Students)
 Center confirmation dialog (want to remove challange?)
-BUG after editing the list of Lies in a challange, navigation to exam occurs
 BUG selection in feedback while (ctrl) does not remove
+Some "sample" data. (would be nice with some .sql files to execute)
 
 # DONE
+BUG after editing the list of Lies in a challange, navigation to exam occurs
+Challange View/Edit Page(s)
+Exam View/Edit Page
+In Challange Page, list Exams it is part of.
 BUG clearing one message clears all (sometimes)
 in Challange Page, list related Exams
 BUG sync / bind / ItemsSource ..
