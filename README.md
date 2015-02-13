@@ -4,6 +4,7 @@ A Quiz-like game to help studying for exams.
 # TODO
 NOW
   Database error handling
+  Exam Take Page
 LATER
 PLAN
   Examination/Test-taking session
@@ -12,7 +13,6 @@ PLAN
   Go to selected Student in Students Page
   Student Edit Page
   Student View Page
-  Exam Take Page
   Sync. (Bind) VoiceEnabled CheckBox with MainWindow.VoiceEnabled instead of ToggleButton.VoiceEnabled (BUG it is enabled, but reverse for some reason)
   Add dates to all domain classes (Models)
   In InputWindow, focus on input field on open.
