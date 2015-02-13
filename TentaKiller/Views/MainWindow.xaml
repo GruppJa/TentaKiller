@@ -11,7 +11,7 @@
     
     <DockPanel Margin="10">
         <!-- TODO MaxHeight should be three (or X) rows (not pixels / points / whatever this unit is) -->
-        <ListView BorderThickness="0" Name="feedbackList" DockPanel.Dock="Bottom" MaxHeight="47">
+        <ListView SelectionMode="Single" BorderThickness="0" Name="feedbackList" DockPanel.Dock="Bottom" MaxHeight="47">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="1" MouseLeftButtonUp="RemoveFeedback" HorizontalAlignment="Left" Text="{Binding}"></TextBlock>

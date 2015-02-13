@@ -13,7 +13,6 @@ Exam Take Page
 Challange View/Edit Page(s)
 Sync. (Bind) VoiceEnabled CheckBox with MainWindow.VoiceEnabled instead of ToggleButton.VoiceEnabled (BUG it is enabled, but reverse for some reason)
 Add dates to all domain classes (Models)
-Remove Challange
 In Challange Page, list Exams it is part of.
 In InputWindow, focus on input field on open.
 When removing Exam, remove (ask first?) related Challanges (if the Challange is not related to any other exam)
@@ -22,6 +21,7 @@ Filterable/Searchable lists (Challanges, Exams, Students)
 Sortable lists (Challanges, Exams, Students)
 Center confirmation dialog (want to remove challange?)
 BUG after editing the list of Lies in a challange, navigation to exam occurs
+BUG selection in feedback while (ctrl) does not remove
 
 # DONE
 BUG clearing one message clears all (sometimes)
