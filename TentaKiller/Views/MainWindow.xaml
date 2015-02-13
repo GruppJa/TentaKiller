@@ -20,18 +20,24 @@
         </ListView>
 
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Margin="5" x:Name="ViewChallangesButton" Click="ViewChallanges">
-                <Image Height="128" Source="{StaticResource ChallangeIcon}" Stretch="Fill" Width="128"/>
-            </Button>
+            <StackPanel MouseLeftButtonUp="ViewChallanges" x:Name="ViewChallangesImage">
+                <Image Height="80" Source="{StaticResource ChallangeIcon}" Stretch="Fill" Width="80"/>
 
-            <Button Margin="5" x:Name="ViewExamsButton" Click="ViewExams">
-                <Image Height="128" Source="{StaticResource ExamIcon}" Stretch="Fill" Width="128"/>
-            </Button>
+                <TextBlock HorizontalAlignment="Center">Challanges</TextBlock>
+            </StackPanel>
 
-            <Button Margin="5" x:Name="ViewStudentsButton" Click="ViewStudents">
-                <Image Height="128" Source="{StaticResource StudentIcon}" Stretch="Fill" Width="128"/>
-            </Button>
+            <StackPanel MouseLeftButtonUp="ViewExams" x:Name="ViewExamImage">
+                <Image Height="80" Source="{StaticResource ExamIcon}" Stretch="Fill" Width="80"/>
 
+                <TextBlock HorizontalAlignment="Center">Exam</TextBlock>
+            </StackPanel>
+
+            <StackPanel MouseLeftButtonUp="ViewStudents" x:Name="ViewStudentsImage">
+                <Image Height="80" Source="{StaticResource StudentIcon}" Stretch="Fill" Width="80"/>
+
+                <TextBlock HorizontalAlignment="Center">Students</TextBlock>
+            </StackPanel>
+           
             <CheckBox IsChecked="{Binding Path=MainWindow.VoiceEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ToggleVoiceEnabled" Background="White"/>
         </StackPanel>
 
