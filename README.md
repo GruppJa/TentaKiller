@@ -25,6 +25,8 @@ PLAN
   Some "sample" data. (would be nice with some .sql files to execute)
   User login / selection (select current student)
   Offline mode?
+  Possibility to add an already existing Challange to an (already existing) Exam.
+  Possibility to add a Challange to an already existing Exam.
 
 # DONE
 BUG after editing the list of Lies in a challange, navigation to exam occurs
