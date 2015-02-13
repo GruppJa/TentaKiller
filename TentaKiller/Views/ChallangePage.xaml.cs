@@ -95,7 +95,6 @@ namespace TentaKiller.Views
                 mainWindow.Navigate(mainWindow.ChallangesPage);
             }
         }
-        
 
         protected void RemoveSelectedLies(object sender, RoutedEventArgs ea)
         {
