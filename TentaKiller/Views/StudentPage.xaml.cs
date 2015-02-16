@@ -33,13 +33,13 @@ namespace TentaKiller.Views
 
         public void RemoveStudent(object sender, EventArgs ea)
         {
-            MessageBoxResult result = MessageBox.Show("Are you certain you'd like to remove this exam? (This is irreversable).", "Remove Exam?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            MessageBoxResult result = MessageBox.Show("Are you certain you'd like to remove this Student? (This is irreversable).", "Remove Student?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
             if (result == MessageBoxResult.Yes)
             {
                 // TODO remove related Challanges (unless that Challange is part of another Exam)
                 mainWindow.app.Data.Students.Local.Remove(student);
                 mainWindow.app.Data.SaveChanges();
-                mainWindow.AddFeedback("Removed exam '" + student.Name + "' [" + student.Id + "]");
+                mainWindow.AddFeedback("Removed Student '" + student.Name + "' [" + student.Id + "]");
                 mainWindow.Navigate(mainWindow.StudentPage);
             }
         }
