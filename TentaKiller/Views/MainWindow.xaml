@@ -20,19 +20,19 @@
         </ListView>
 
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel MouseLeftButtonUp="ViewChallanges" x:Name="ViewChallangesImage">
+            <StackPanel MouseLeftButtonUp="ViewChallanges" x:Name="ViewChallangesImage" Cursor="Hand">
                 <Image Height="80" Source="{StaticResource ChallangeIcon}" Stretch="Fill" Width="80"/>
 
                 <TextBlock HorizontalAlignment="Center">Challanges</TextBlock>
             </StackPanel>
 
-            <StackPanel MouseLeftButtonUp="ViewExams" x:Name="ViewExamImage">
+            <StackPanel MouseLeftButtonUp="ViewExams" x:Name="ViewExamImage" Cursor="Hand">
                 <Image Height="80" Source="{StaticResource ExamIcon}" Stretch="Fill" Width="80"/>
 
                 <TextBlock HorizontalAlignment="Center">Exam</TextBlock>
             </StackPanel>
 
-            <StackPanel MouseLeftButtonUp="ViewStudents" x:Name="ViewStudentsImage">
+            <StackPanel MouseLeftButtonUp="ViewStudents" x:Name="ViewStudentsImage" Cursor="Hand">
                 <Image Height="80" Source="{StaticResource StudentIcon}" Stretch="Fill" Width="80"/>
 
                 <TextBlock HorizontalAlignment="Center">Students</TextBlock>
