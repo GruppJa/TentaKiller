@@ -57,7 +57,7 @@
         </ListView>
 
         <StackPanel Orientation="Horizontal">
-            <TextBlock>Created by </TextBlock>
+            <TextBlock Text="Created by "></TextBlock>
             
             <TextBlock Text="{Binding Creator.Name}"/>
         </StackPanel>
