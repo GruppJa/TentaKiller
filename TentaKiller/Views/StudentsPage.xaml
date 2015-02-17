@@ -9,9 +9,11 @@
 
     <DockPanel>
         <TextBlock HorizontalAlignment="Center" DockPanel.Dock="Top" FontSize="16">Students</TextBlock>
+        
+        <DockPanel HorizontalAlignment="Center" DockPanel.Dock="Bottom">
+            <Button Click="CreateStudent" Content="New Student" Margin="5"></Button>
+        </DockPanel>
 
-        <Button Click="CreateStudent" Content="New Student" DockPanel.Dock="Bottom" Height="30" Width="70" ></Button>
-                
         <ListView Name="listView">
             <ListView.ItemTemplate>
                 <DataTemplate>
