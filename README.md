@@ -10,25 +10,25 @@ PLAN
   Examination/Test-taking session
   Database in own thread
   Voice in own thread
-  Go to selected Student in Students Page
   Student Edit Page
   Student View Page
   Sync. (Bind) VoiceEnabled CheckBox with MainWindow.VoiceEnabled instead of ToggleButton.VoiceEnabled (BUG it is enabled, but reverse for some reason)
-  Add dates to all domain classes (Models)
   In InputWindow, focus on input field on open.
   When removing Exam, remove (ask first?) related Challanges (if the Challange is not related to any other exam)
   Refactor : rename Challange to Challenge (everywhere)
   Filterable/Searchable lists (Challanges, Exams, Students)
   Sortable lists (Challanges, Exams, Students)
   Center confirmation dialog (want to remove challange?)
-  BUG selection in feedback while (ctrl) does not remove
-  Some "sample" data. (would be nice with some .sql files to execute)
-  User login / selection (select current student)
   Offline mode?
   Possibility to add an already existing Challange to an (already existing) Exam.
   Possibility to add a Challange to an already existing Exam.
 
 # DONE
+Some "sample" data. (would be nice with some .sql files to execute)
+Add dates to all domain classes (Models)
+BUG selection in feedback while (ctrl) does not remove
+User login / selection (select current student)
+Go to selected Student in Students Page
 BUG after editing the list of Lies in a challange, navigation to exam occurs
 Challange View/Edit Page(s)
 Exam View/Edit Page
