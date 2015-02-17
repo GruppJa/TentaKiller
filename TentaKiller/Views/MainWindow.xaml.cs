@@ -64,7 +64,8 @@ namespace TentaKiller.Views
 
         public void AddFeedback(string message) {
             // Add at the beginning so it displays first in when displaying.
-            feedbackList.Items.Insert(0, message);
+            String date = DateTime.Now.ToString("H" + ":" + "mm");
+            feedbackList.Items.Insert(0, date + " " + message);
         }
 
         public bool Confirm(string title, string question)
