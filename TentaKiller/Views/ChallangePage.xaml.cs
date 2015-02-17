@@ -93,6 +93,7 @@ namespace TentaKiller.Views
             {
                 mainWindow.app.Data.Challanges.Local.Remove(Challange);
                 mainWindow.app.Data.SaveChanges();
+                mainWindow.AddFeedback("Removed Challange '" + challange.Question + "' [" + challange.Id + "]");
                 mainWindow.Navigate(mainWindow.ChallangesPage);
             }
         }
