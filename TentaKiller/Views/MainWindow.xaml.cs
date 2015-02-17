@@ -62,8 +62,14 @@ namespace TentaKiller.Views
 
             InitializeComponent();
 
+            feedbackList.SelectionChanged += feedbackList_SelectionChanged;
             AddFeedback("This is the a feedback list. Click on a message to remove it.");
             AddFeedback("Welcome to Tenta Killer! :)");
+        }
+
+        private void feedbackList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            feedbackList.UnselectAll();
         }
 
 
