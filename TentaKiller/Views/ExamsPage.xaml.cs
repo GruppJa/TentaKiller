@@ -47,6 +47,7 @@ namespace TentaKiller.Views
         public void CreateExam(object sender, EventArgs e)
         {
             Exam exam = new Exam();
+            exam.Creator = mainWindow.LoggedInStudent;
             mainWindow.app.Data.Exams.Add(exam);
             mainWindow.app.Data.SaveChanges();
             mainWindow.ExamPage.Exam = exam;

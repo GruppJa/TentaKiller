@@ -14,6 +14,8 @@
 
         <TextBox Text="{Binding Path=Name, Mode=TwoWay}"></TextBox>
 
+        <Button HorizontalAlignment="Center" Margin="5" Click="BecomeStudent">This is I</Button>
+        
         <Button HorizontalAlignment="Center" Margin="5" Click="RemoveStudent">Remove Student</Button>
     </StackPanel>
 </Page>

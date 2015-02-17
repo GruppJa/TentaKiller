@@ -59,7 +59,9 @@ namespace TentaKiller.Views
             InputWindow inputDialog = new InputWindow("New Lie", "An answer, but a false one.", "", mainWindow);
             if (inputDialog.ShowDialog() == true)
             {
-                challange.Lies.Add(new Lie(inputDialog.Answer));
+                Lie lie = new Lie(inputDialog.Answer);
+                lie.Creator = mainWindow.LoggedInStudent;
+                challange.Lies.Add(lie);
                 mainWindow.app.Data.SaveChanges();
 
                 // refresh (TODO this is a hack, should not be needed)

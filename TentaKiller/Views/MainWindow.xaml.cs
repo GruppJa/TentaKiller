@@ -27,6 +27,9 @@ namespace TentaKiller.Views
     {
         public App app { get; set; }
 
+        // rudimentary User/Session support
+        public Student LoggedInStudent { get; set; }
+
         // Pages / Views
         public Page CurrentPage { get; set; }
         public ChallangePage ChallangePage { get; set; }

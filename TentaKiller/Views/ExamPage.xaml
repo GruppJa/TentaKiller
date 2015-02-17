@@ -38,6 +38,12 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>Created by </TextBlock>
+
+            <TextBlock Text="{Binding Creator.Name}"/>
+        </StackPanel>
+
         <StackPanel HorizontalAlignment="Center">
             <Button Margin="5" Click="TakeExam">Take Exam</Button>
 

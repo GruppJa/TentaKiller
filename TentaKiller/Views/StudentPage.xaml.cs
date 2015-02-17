@@ -31,6 +31,17 @@ namespace TentaKiller.Views
             }
         }
 
+        public StudentPage(MainWindow window)
+        {
+            mainWindow = window;
+            InitializeComponent();
+        }
+
+        public void BecomeStudent(object sender, EventArgs ea)
+        {
+            mainWindow.LoggedInStudent = student;
+        }
+
         public void RemoveStudent(object sender, EventArgs ea)
         {
             MessageBoxResult result = MessageBox.Show("Are you certain you'd like to remove this Student? (This is irreversable).", "Remove Student?", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
@@ -42,12 +53,6 @@ namespace TentaKiller.Views
                 mainWindow.AddFeedback("Removed Student '" + student.Name + "' [" + student.Id + "]");
                 mainWindow.Navigate(mainWindow.StudentPage);
             }
-        }
-
-        public StudentPage(MainWindow window)
-        {
-            mainWindow = window;
-            InitializeComponent();
         }
     }
 }

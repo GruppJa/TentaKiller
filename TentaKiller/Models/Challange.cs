@@ -11,6 +11,8 @@ namespace TentaKiller.Models
         public String Id { get; set; }
         public String Question { get; set; }
         public String Answer { get; set; }
+        public DateTime Created { get; set; }
+        public virtual Student Creator { get; set; }
         public virtual ICollection<Lie> Lies { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }
 
@@ -19,6 +21,7 @@ namespace TentaKiller.Models
             this.Id = id;
             this.Question = question;
             this.Answer = answer;
+            this.Created = DateTime.Now;
             this.Lies = new HashSet<Lie>();
             this.Exams = new HashSet<Exam>();
         }

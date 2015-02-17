@@ -45,6 +45,7 @@ namespace TentaKiller.Views
         public void CreateChallange(object sender, EventArgs e)
         {
             Challange challange = new Challange();
+            challange.Creator = mainWindow.LoggedInStudent;
             mainWindow.app.Data.Challanges.Add(challange);
             mainWindow.app.Data.SaveChanges();
             mainWindow.ChallangePage.Challange = challange;
