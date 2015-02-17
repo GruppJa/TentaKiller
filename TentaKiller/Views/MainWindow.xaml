@@ -29,7 +29,7 @@
             <StackPanel MouseLeftButtonUp="ViewExams" x:Name="ViewExamImage" Cursor="Hand">
                 <Image Height="80" Source="{StaticResource ExamIcon}" Stretch="Fill" Width="80"/>
 
-                <TextBlock HorizontalAlignment="Center">Exam</TextBlock>
+                <TextBlock HorizontalAlignment="Center">Exams</TextBlock>
             </StackPanel>
 
             <StackPanel MouseLeftButtonUp="ViewStudents" x:Name="ViewStudentsImage" Cursor="Hand">
