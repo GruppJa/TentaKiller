@@ -27,9 +27,19 @@ namespace TentaKiller.Views
         {
             mainWindow = window;
             InitializeComponent();
-            // TODO listView.SelectionChanged += SelectionChanged;
+            listView.SelectionChanged += SelectionChanged;
             listView.IsSynchronizedWithCurrentItem = true;
             listView.ItemsSource = window.app.Data.Students.Local;
+        }
+
+        void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listView.SelectedItem == null)
+                return;
+
+            mainWindow.StudentPage.Student = (Student)listView.SelectedItem;
+            listView.UnselectAll();
+            mainWindow.Navigate(mainWindow.StudentPage);
         }
 
         public void CreateStudent(object sender, EventArgs e)
