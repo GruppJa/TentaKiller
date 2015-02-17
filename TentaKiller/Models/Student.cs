@@ -10,6 +10,7 @@ namespace TentaKiller.Models
         // TODO remove set
         public String Id { get; set; }
         public String Name { get; set; }
+        public DateTime Created { get; set; }
         public virtual ICollection<Challange> Challanges { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }
         public virtual ICollection<Lie> Lies { get; set; }
@@ -18,6 +19,7 @@ namespace TentaKiller.Models
         {
             this.Id = id;
             this.Name = name;
+            this.Created = DateTime.Now;
         }
 
         public Student(String name) : this(System.Guid.NewGuid().ToString(), name) { }
