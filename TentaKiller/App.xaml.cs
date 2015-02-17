@@ -31,6 +31,7 @@ namespace TentaKiller
             
             Window = new MainWindow(this);
             Window.Show();
+            Window.Navigate(Window.SplashPage);
 
             // Populate local data (and set default selections to none)
             // TODO Find and use that Load() method the documentation talks about...

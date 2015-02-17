@@ -32,6 +32,7 @@ namespace TentaKiller.Views
 
         // Pages / Views
         public Page CurrentPage { get; set; }
+        public SplashPage SplashPage { get; set; }
         public ChallangePage ChallangePage { get; set; }
         public ChallangesPage ChallangesPage { get; set; }
         public ExamPage ExamPage { get; set; }
@@ -50,6 +51,7 @@ namespace TentaKiller.Views
 
             this.app = app;
 
+            SplashPage = new SplashPage(this);
             ChallangePage = new ChallangePage(this);
             ChallangesPage = new ChallangesPage(this);
             ExamsPage = new ExamsPage(this);
