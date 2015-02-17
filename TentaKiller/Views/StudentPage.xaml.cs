@@ -51,7 +51,7 @@ namespace TentaKiller.Views
                 mainWindow.app.Data.Students.Local.Remove(student);
                 mainWindow.app.Data.SaveChanges();
                 mainWindow.AddFeedback("Removed Student '" + student.Name + "' [" + student.Id + "]");
-                mainWindow.Navigate(mainWindow.StudentPage);
+                mainWindow.Navigate(mainWindow.StudentsPage);
             }
         }
     }
