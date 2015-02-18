@@ -47,8 +47,11 @@
 
                 <TextBlock HorizontalAlignment="Center">Students</TextBlock>
             </StackPanel>
-
-            <CheckBox IsChecked="{Binding Path=MainWindow.VoiceEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Right" Click="ToggleVoiceEnabled" Background="White"/>
+            
+            <DockPanel>
+                <CheckBox IsChecked="{Binding Path=MainWindow.VoiceEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Left" Click="ToggleVoiceEnabled" Background="White"/>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">Tick for sound</TextBlock>
+            </DockPanel>
         </StackPanel>
 
         <Frame Margin="0 5" Name="frame" NavigationUIVisibility="Hidden"></Frame>
