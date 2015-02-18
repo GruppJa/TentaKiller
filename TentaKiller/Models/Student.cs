@@ -14,6 +14,7 @@ namespace TentaKiller.Models
         public virtual ICollection<Challange> Challanges { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }
         public virtual ICollection<Lie> Lies { get; set; }
+        public virtual ICollection<Trial> Trials { get; set; }
 
         public Student(String id, String name)
         {

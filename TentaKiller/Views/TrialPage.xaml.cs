@@ -16,16 +16,25 @@ using TentaKiller.Models;
 
 namespace TentaKiller.Views
 { 
-    public partial class TakeExamPage : Page
+    public partial class TrialPage : Page
     {
         protected MainWindow mainWindow;
 
-           
-       public TakeExamPage(MainWindow window)
+        protected TentaKiller.Models.Trial trial;
+        public TentaKiller.Models.Trial Trial
+        {
+            get { return trial; }
+            set
+            {
+                trial = value;
+                DataContext = value;
+            }
+        }
+
+        public TrialPage(MainWindow window)
         {
             mainWindow = window;
-            //initializeComponent();
-            
+            InitializeComponent();
         }
     }
 }

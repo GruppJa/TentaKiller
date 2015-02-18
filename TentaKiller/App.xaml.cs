@@ -46,6 +46,10 @@ namespace TentaKiller
             CollectionViewSource.GetDefaultView(Data.Challanges.Local).MoveCurrentTo(null);
             Data.Lies.ToList<Lie>();
             CollectionViewSource.GetDefaultView(Data.Lies.Local).MoveCurrentTo(null);
+            Data.Trials.ToList<Trial>();
+            CollectionViewSource.GetDefaultView(Data.Trials.Local).MoveCurrentTo(null);
+            Data.TrialParts.ToList<TrialPart>();
+            CollectionViewSource.GetDefaultView(Data.TrialParts.Local).MoveCurrentTo(null);
         }
     }
 }

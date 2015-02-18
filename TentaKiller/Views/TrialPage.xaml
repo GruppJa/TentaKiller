@@ -1,24 +1,30 @@
-﻿<Page x:Class="TentaKiller.Views.TakeExam"
+﻿<Page x:Class="TentaKiller.Views.TrialPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="Exam Page">
-
+	Title="Trial Page">
     <StackPanel>
+        <TextBlock HorizontalAlignment="Center" FontSize="10" Text="{Binding Id}"></TextBlock>
+        
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Text="Trial Page for "/>
 
-        <TextBlock Text="{Binding Id}"></TextBlock>
-        <ListView Name="listView"  Width="298" Height="125" >
+            <TextBlock FontSize="14" Text="{Binding Exam.Name}"></TextBlock>
+        </StackPanel>
+        
+        <ListView Name="partList">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock HorizontalAlignment="Right" Text="{Binding Name}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Right" Text="{Binding Challange.Name}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
         <StackPanel Orientation="Horizontal"/>
     </StackPanel>
 </Page>
