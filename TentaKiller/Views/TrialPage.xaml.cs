@@ -28,6 +28,8 @@ namespace TentaKiller.Views
             {
                 trial = value;
                 DataContext = value;
+                partList.ClearValue(ItemsControl.ItemsSourceProperty);
+                partList.ItemsSource = value.Parts;
             }
         }
 
@@ -35,6 +37,29 @@ namespace TentaKiller.Views
         {
             mainWindow = window;
             InitializeComponent();
+        }
+
+        private void Grade(object sender, RoutedEventArgs e)
+        {
+            // TODO Points stuff.. not really correct. part.Points should reflect Exam-Challange relation (non-existant property atm.)
+            trial.Ended = DateTime.Now;
+            trial.Points = 0;
+            trial.MaxPoints = 0;
+            IEnumerator<TrialPart> i = trial.Parts.GetEnumerator();
+            while (i.MoveNext())
+            {
+                TrialPart part = i.Current;
+                trial.MaxPoints += part.Points;
+                if (part.Answer != null && part.Answer.Equals(part.Challange.Answer))
+                {
+                    trial.Points += part.Points;
+                }
+            }
+            trial.Graded = true;
+
+            mainWindow.app.Data.SaveChanges();
+
+            mainWindow.Navigate(trial);
         }
     }
 }

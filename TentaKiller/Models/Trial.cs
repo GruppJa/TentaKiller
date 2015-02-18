@@ -13,6 +13,9 @@ namespace TentaKiller.Models
         public virtual Student Student { get; set; }
         public DateTime Started { get; set; }
         public DateTime Ended { get; set; }
+        public bool Graded { get; set; }
+        public int Points { get; set; } // calculated value
+        public int MaxPoints { get; set; } // calculated value
         public virtual ICollection<TrialPart> Parts { get; set; }
 
         public Trial() : this(System.Guid.NewGuid().ToString()) { }
@@ -21,6 +24,7 @@ namespace TentaKiller.Models
         {
             Id = id;
             Started = DateTime.Now;
+            Ended = DateTime.Now.AddHours(24);
             Parts = new HashSet<TrialPart>();
         }
     }

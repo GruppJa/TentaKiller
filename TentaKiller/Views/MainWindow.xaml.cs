@@ -25,6 +25,7 @@ namespace TentaKiller.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        // TODO rename to App
         public App app { get; set; }
 
         // rudimentary User/Session support

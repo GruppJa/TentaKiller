@@ -7,24 +7,42 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Trial Page">
     <StackPanel>
-        <TextBlock HorizontalAlignment="Center" FontSize="10" Text="{Binding Id}"></TextBlock>
-        
+        <TextBlock Margin="1" HorizontalAlignment="Center" FontSize="10" Text="{Binding Id}"></TextBlock>
+
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Trial Page for "/>
 
             <TextBlock FontSize="14" Text="{Binding Exam.Name}"></TextBlock>
         </StackPanel>
-        
+
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBlock FontSize="14" Text="{Binding Points}"></TextBlock>
+
+            <TextBlock Text=" / "/>
+
+            <TextBlock FontSize="14" Text="{Binding MaxPoints}"></TextBlock>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBlock FontSize="14" Text="{Binding Started}"></TextBlock>
+
+            <TextBlock Text=" - "/>
+
+            <TextBlock FontSize="14" Text="{Binding Ended}"></TextBlock>
+        </StackPanel>
+
         <ListView Name="partList">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock HorizontalAlignment="Right" Text="{Binding Challange.Name}"></TextBlock>
+                        <TextBlock HorizontalAlignment="Right" Text="{Binding Challange.Question}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         
-        <StackPanel Orientation="Horizontal"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Click="Grade">I am DONE!</Button>
+        </StackPanel>
     </StackPanel>
 </Page>

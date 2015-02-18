@@ -81,7 +81,9 @@ namespace TentaKiller.Views
             IEnumerator<Challange> i = exam.Challanges.GetEnumerator();
             while (i.MoveNext())
             {
-                trial.Parts.Add(new TrialPart() { Trial = trial, Challange = i.Current });
+                TrialPart part = new TrialPart() { Trial = trial, Challange = i.Current };
+                trial.Parts.Add(part);
+                mainWindow.app.Data.TrialParts.Local.Add(part);
             }
             mainWindow.app.Data.Trials.Local.Add(trial);
             mainWindow.app.Data.SaveChanges();

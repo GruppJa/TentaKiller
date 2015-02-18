@@ -18,6 +18,7 @@ namespace TentaKiller.Models
         public TrialPart(String id)
         {
             Id = id;
+            Points = 1;
         }
     }
 }
