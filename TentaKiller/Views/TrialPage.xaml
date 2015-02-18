@@ -31,7 +31,7 @@
             <TextBlock FontSize="14" Text="{Binding Ended}"></TextBlock>
         </StackPanel>
 
-        <ListView Name="partList">
+        <ListView Name="partList" SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -40,6 +40,18 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <StackPanel Name="selectedPart">
+            <TextBlock FontSize="16" Name="selectedPartQuestion"></TextBlock>
+            
+            <ListView Name="choicesList" SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"></TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
         
         <StackPanel Orientation="Horizontal">
             <Button Click="Grade">I am DONE!</Button>

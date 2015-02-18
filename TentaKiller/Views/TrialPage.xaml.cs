@@ -20,6 +20,41 @@ namespace TentaKiller.Views
     {
         protected MainWindow mainWindow;
 
+        // TODO clean, confusing with selectedPart
+        protected TrialPart currentPart;
+        public TrialPart CurrentPart {
+            get { return currentPart; }
+            set {
+                currentPart = value;
+                selectedPartQuestion.Text = currentPart.Challange.Question;
+                choicesList.ItemsSource = GenerateChoices(currentPart.Challange);
+                choicesList.SelectedItem = currentPart.Answer;
+            }
+        }
+
+        internal List<string> GenerateChoices(Challange challange)
+        {
+            // get list of all
+            List<string> choices = new List<string>();
+            choices.Add(challange.Answer);
+            IEnumerator<Lie> i = challange.Lies.GetEnumerator();
+            while (i.MoveNext()) choices.Add(i.Current.Text);
+
+            // shuffle
+            Random random = new Random();
+            int shuffles = choices.Count * 3;
+            while (shuffles-- > 0)
+            {
+                int r = random.Next(choices.Count);
+                string t = choices[r];
+                choices.RemoveAt(r);
+                choices.Add(t);
+            }
+
+            // return
+            return choices;
+        }
+
         protected TentaKiller.Models.Trial trial;
         public TentaKiller.Models.Trial Trial
         {
@@ -27,6 +62,7 @@ namespace TentaKiller.Views
             set
             {
                 trial = value;
+                DataContext = "";
                 DataContext = value;
                 partList.ClearValue(ItemsControl.ItemsSourceProperty);
                 partList.ItemsSource = value.Parts;
@@ -37,6 +73,22 @@ namespace TentaKiller.Views
         {
             mainWindow = window;
             InitializeComponent();
+            partList.SelectionChanged += partList_SelectionChanged;
+            choicesList.SelectionChanged += choicesList_SelectionChanged;
+        }
+
+        private void choicesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (choicesList.SelectedItem == null) return;
+
+            CurrentPart.Answer = (string)choicesList.SelectedItem;
+        }
+
+        private void partList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (partList.SelectedItem == null) return;
+
+            CurrentPart = (TrialPart)partList.SelectedItem;
         }
 
         private void Grade(object sender, RoutedEventArgs e)
@@ -60,6 +112,16 @@ namespace TentaKiller.Views
             mainWindow.app.Data.SaveChanges();
 
             mainWindow.Navigate(trial);
+        }
+
+        private void SelectChoice(object sender, MouseButtonEventArgs e)
+        {
+            CurrentPart.Answer = (string)choicesList.SelectedItem;
+        }
+
+        private void SelectPart(object sender, MouseButtonEventArgs e)
+        {
+            CurrentPart = (TrialPart)partList.SelectedItem;
         }
     }
 }
