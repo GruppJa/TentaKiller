@@ -13,6 +13,14 @@
         <TextBlock HorizontalAlignment="Center" FontSize="10" Text="{Binding Id}"></TextBlock>
 
         <TextBox Text="{Binding Path=Name, Mode=TwoWay}"></TextBox>
+        
+        <ListView Name="trialList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Exam.Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <Button HorizontalAlignment="Center" Margin="5" Click="BecomeStudent">This is I</Button>
         

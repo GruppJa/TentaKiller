@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TentaKiller.Models;
 
 namespace TentaKiller.Views
 {
@@ -22,13 +23,22 @@ namespace TentaKiller.Views
     {
         protected MainWindow mainWindow;
 
-        protected TentaKiller.Models.Student student;
-        public TentaKiller.Models.Student Student { 
+        protected Student student;
+        public Student Student { 
             get { return student; } 
             set { 
                 student = value; 
-                DataContext = value; 
+                DataContext = value;
+                trialList.ItemsSource = student.Trials;
+                trialList.SelectionChanged += trialList_SelectionChanged;
             }
+        }
+
+        void trialList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (trialList.SelectedItem == null) return;
+
+            mainWindow.Navigate((Trial)trialList.SelectedItem);
         }
 
         public StudentPage(MainWindow window)
