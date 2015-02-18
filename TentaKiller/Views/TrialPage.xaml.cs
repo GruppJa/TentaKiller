@@ -112,6 +112,11 @@ namespace TentaKiller.Views
             mainWindow.app.Data.SaveChanges();
 
             mainWindow.Navigate(trial);
+
+            string result = trial.Points.ToString();
+            string max = trial.MaxPoints.ToString();
+
+            MessageBox.Show(trial.Exam.Name + ": results: " + result + "/" + max + "  is correct, gratz!!!");
         }
 
         private void SelectChoice(object sender, MouseButtonEventArgs e)
