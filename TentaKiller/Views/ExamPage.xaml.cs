@@ -75,9 +75,17 @@ namespace TentaKiller.Views
 
         public void TakeExam(object sender, EventArgs e)
         {
-            Exam exam = new Exam();
+            Trial trial = new Trial();
+            trial.Student = mainWindow.LoggedInStudent;
+            trial.Exam = exam;
+            IEnumerator<Challange> i = exam.Challanges.GetEnumerator();
+            while (i.MoveNext())
+            {
+                trial.Parts.Add(new TrialPart() { Trial = trial, Challange = i.Current });
+            }
+            mainWindow.app.Data.Trials.Local.Add(trial);
             mainWindow.app.Data.SaveChanges();
-            mainWindow.Navigate(mainWindow.TakeExamPage);
+            mainWindow.Navigate(trial);
         }
     }
 }

@@ -65,6 +65,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Lie.cs" />
+    <Compile Include="Models\Trial.cs" />
+    <Compile Include="Models\TrialPart.cs" />
     <Compile Include="TentaKillerDBContext.cs" />
     <Compile Include="Views\ChallangePage.xaml.cs">
       <DependentUpon>ChallangePage.xaml</DependentUpon>
@@ -91,8 +93,8 @@
       <DependentUpon>StudentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs" />
-    <Compile Include="Views\TakeExam.xaml.cs">
-      <DependentUpon>TakeExam.xaml</DependentUpon>
+    <Compile Include="Views\TrialPage.xaml.cs">
+      <DependentUpon>TrialPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\ChallangePage.xaml">
       <SubType>Designer</SubType>
@@ -140,7 +142,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TakeExam.xaml">
+    <Page Include="Views\TrialPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

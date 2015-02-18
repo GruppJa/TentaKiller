@@ -39,7 +39,7 @@ namespace TentaKiller.Views
         public ExamsPage ExamsPage { get; set; }
         public StudentPage StudentPage { get; set; }
         public StudentsPage StudentsPage { get; set; }
-        public TakeExamPage TakeExamPage { get; set; }
+        public TrialPage TrialPage { get; set; }
 
         // Speech / Voice
         protected SpeechSynthesizer speaker = new SpeechSynthesizer();
@@ -58,7 +58,7 @@ namespace TentaKiller.Views
             ExamPage = new ExamPage(this);
             StudentPage = new StudentPage(this);
             StudentsPage = new StudentsPage(this);
-            TakeExamPage = new TakeExamPage(this);
+            TrialPage = new TrialPage(this);
 
             InitializeComponent();
 
@@ -108,6 +108,12 @@ namespace TentaKiller.Views
         {
             StudentPage.Student = student;
             Navigate(StudentPage);
+        }
+
+        public void Navigate(Trial trial)
+        {
+            TrialPage.Trial = trial;
+            Navigate(TrialPage);
         }
 
         protected void RemoveFeedback(object sender, RoutedEventArgs ea)
