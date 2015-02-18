@@ -16,5 +16,21 @@ namespace TentaKiller
         public DbSet<Exam> Exams { get; set; }
         public DbSet<Lie> Lies { get; set; }
         public DbSet<Challange> Challanges { get; set; }
+
+        public override int SaveChanges()
+        {
+            Console.WriteLine("SaveChanges()");
+
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("SAVE CHANGES ERROR : {0}", ex.Message);
+            }
+
+            return 0;
+        }
     }
 }
