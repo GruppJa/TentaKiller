@@ -9,6 +9,8 @@ namespace TentaKiller.Models
     {
         // TODO remove set
         public String Id { get; set; }
+        public String Email { get; set; }
+        public String Password { get; set; }
         public String Name { get; set; }
         public DateTime Created { get; set; }
         public virtual ICollection<Challange> Challanges { get; set; }

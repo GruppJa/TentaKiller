@@ -48,3 +48,8 @@ move Views to own namespace
 move Models to own namespace
 Go to selected Exam in Exams Page
 Give each Page (Views) a reference to MainWindow
+
+
+NOTES
+  Entity Framework - Database Migration
+  https://msdn.microsoft.com/en-us/data/jj591621
