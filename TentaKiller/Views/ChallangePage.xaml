@@ -28,9 +28,9 @@
             <DockPanel HorizontalAlignment="Right">
                 <Button Margin="1 4 1 0" Click="EditSelectedLies">Edit</Button>
 
-                <Button Margin="1 4 1 0" Click="AddLie">+</Button>
+                <Button Margin="1 4 1 0" Click="AddLie" Height="20" Width="20">+</Button>
 
-                <Button Margin="1 4 1 0" Click="RemoveSelectedLies">-</Button>
+                <Button Margin="1 4 1 0" Click="RemoveSelectedLies" Height="20" Width="20">-</Button>
             </DockPanel>
         </Grid>
 
